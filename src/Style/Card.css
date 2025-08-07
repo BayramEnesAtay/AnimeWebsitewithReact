@@ -1,0 +1,20 @@
+.carddiv{
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+#image{
+  width: 80%;
+  height: 80%;
+  border-radius: 7px;
+  z-index: 1;
+}
+#name{
+  text-decoration: none;
+  color:blue;
+}
