@@ -18,7 +18,7 @@
   text-decoration: none;
   color:blue;
 }
-.tooltiptext{
+.tooltiptextfalse{
   display:flex;
   flex-direction: column;
   position: absolute;
@@ -31,7 +31,23 @@
   width:250px;
   height:150px;
   margin: 0px;
-  
+  visibility: hidden;
+}
+.tooltiptexttrue{
+  display:flex;
+  flex-direction: column;
+  position: absolute;
+  width: 120px;
+  background-color: #384b5e;
+  color: #fff;
+  border-radius: 6px;
+  top:5px;
+  left:  90%;
+  width:250px;
+  height:150px;
+  margin: 0px;
+  visibility: visible;
+  z-index: 2;
 }
 .info{
   margin-left: 20px;

@@ -4,7 +4,7 @@ import Card from './Card';
 import Cardrow from "./Cardrow";
 import Footer from "./Footer";
 
-export default function APİ()
+export default function API()
 {
   const [pagecount,setpagecount]=useState(1);
   const [data,setdata]=useState([]);
