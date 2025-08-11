@@ -1,0 +1,46 @@
+.overviewdiv{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.overviewdiv-item{
+  display: flex;
+  border-right: 1px solid #c18054;
+  width: 200px;
+  height:40px;
+  color:white;
+  text-align: center; 
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 17px;
+  align-items: center;
+}
+#lastchild{
+  border-right: none;
+  width: 200px;
+  height:40px;
+  color:white;
+  text-align: center;
+  flex-wrap: wrap;
+  font-size: 17px;
+  display: flex;
+  justify-content: center;
+}
+.childimg2{
+  border-radius: 15px;
+  margin-left: 50px;
+  margin-top: 50px;
+  width: 150px;
+  margin-top: 0px;
+}
+.overviewdiv2{
+  display: flex;
+  flex-direction: column;
+  width:fit-content;
+  margin-top: 20px;
+}
+.title2{
+  color:aquamarine;
+  text-align: center;
+}

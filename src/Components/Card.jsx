@@ -2,11 +2,13 @@ import React from "react";
 import '../Style/Card.css';
 import { useState } from "react";
 import MoreInfopage from "./MoreInfopage";
+import { useNavigate } from "react-router-dom";
 
 export default function Card({animename,url,anumber,index,anime})
 {
   const [showtooltip,setshowtooltip]=useState(Array(anumber).fill(false));
   let className="tooltiptextfalse";
+  const navigate=useNavigate();
 
   function handlehover(i)
   {
@@ -22,12 +24,11 @@ export default function Card({animename,url,anumber,index,anime})
     setshowtooltip(nextshowtooltip);
   }
 
-  function onimageClick()
+  function onCardClik()
   {
-    let id;
-    id=anime.mal_id;
-    <MoreInfopage id={id}/>
+    navigate(`/anime/${anime.mal_id}`);
   }
+
   if(showtooltip[index])
   {
     className="tooltiptexttrue";
@@ -35,13 +36,13 @@ export default function Card({animename,url,anumber,index,anime})
   
   return(
 
-    <div className="carddiv" >
-      <a className="linktoinfo" target="_blank">
-        <img onClick={()=>onimageClick} id="image" src={url} onMouseOver={()=>handlehover(index)} onMouseLeave={()=>handleoffhover(index)} />
-      </a>
-      <a id="name" target="_blank" >
+    <div className="carddiv" onClick={()=>onCardClik()}>
+      <img  id="image" src={url} onMouseOver={()=>handlehover(index)} onMouseLeave={()=>handleoffhover(index)} />
+
+      <div id="name">
         {animename}
-      </a>
+      </div>
+
       <div className={className}>
       <p id="info1" className="info">Source: {anime.source}</p>
       <p id="info2" className="info">{anime.type} • {anime.episodes} episodes</p>

@@ -1,21 +1,21 @@
-import React, { useState } from "react";
 import SearchBar from "./SearchBar";
 import API from "./API.jsx"
 import Cardrow from "./Cardrow.jsx";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MoreInfopage from "./MoreInfopage.jsx";
+import Story from "./Story.jsx";
+import Overview from "./Overview.jsx";
 
 export default function App()
 {
-  const[animeid,setanimeid]=useState(null);
-
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SearchBar />} >
-          <Route index element={<SearchBar />}/>
-          <Route path={animeid} element={<MoreInfopage id={animeid} setanimeid={setanimeid} />} />
+        <Route path="/" element={<SearchBar />} />
+        <Route path="/anime/:id"  element={<MoreInfopage />} >
+          <Route index element={<Overview />} />
+          <Route path="story" element={<Story />} />
         </Route>
       </Routes>
     </BrowserRouter>
