@@ -1,13 +1,55 @@
 import React from "react";
-import '../Style/Card.css';
+import styled from "styled-components";
 import { useState } from "react";
 import MoreInfopage from "./MoreInfopage";
 import { useNavigate } from "react-router-dom";
 
 export default function Card({animename,url,anumber,index,anime})
-{
+{ 
   const [showtooltip,setshowtooltip]=useState(Array(anumber).fill(false));
-  let className="tooltiptextfalse";
+  
+  const CARD=styled.div`
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+  `
+  const IMG=styled.img`
+    width: 80%;
+    height: 80%;
+    border-radius: 7px;
+    z-index: 1;
+  `
+  const DIV=styled.div`
+    text-decoration: none;
+    color:blue;
+  `
+  const INFO=styled.p`
+    margin-left: 20px;
+    margin-top: 5px;
+    padding: 0px;
+  `
+  const TOOLTIPDIV=styled.div`
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    width: 120px;
+    background-color: #384b5e;
+    color: #fff;
+    border-radius: 6px;
+    top:5px;
+    left:  90%;
+    width:250px;
+    height:150px;
+    margin: 0px;
+    visibility: ${showtooltip[index] ? "visible" : "hidden"};
+    z-index: 2;
+  `
+
+  
   const navigate=useNavigate();
 
   function handlehover(i)
@@ -28,28 +70,23 @@ export default function Card({animename,url,anumber,index,anime})
   {
     navigate(`/anime/${anime.mal_id}`);
   }
-
-  if(showtooltip[index])
-  {
-    className="tooltiptexttrue";
-  }
   
   return(
 
-    <div className="carddiv" onClick={()=>onCardClik()}>
-      <img  id="image" src={url} onMouseOver={()=>handlehover(index)} onMouseLeave={()=>handleoffhover(index)} />
+    <CARD onClick={()=>onCardClik()}>
+      <IMG src={url} onMouseEnter={()=>handlehover(index)} onMouseLeave={()=>handleoffhover(index)} />
 
-      <div id="name">
+      <DIV>
         {animename}
-      </div>
+      </DIV>
 
-      <div className={className}>
-      <p id="info1" className="info">Source: {anime.source}</p>
-      <p id="info2" className="info">{anime.type} • {anime.episodes} episodes</p>
-      <p id="info3" className="info">Score: {anime.score}</p>
+      <TOOLTIPDIV  >
+      <INFO>Source: {anime.source}</INFO>
+      <INFO>{anime.type} • {anime.episodes} episodes</INFO>
+      <INFO>Score: {anime.score}</INFO>
       
-    </div>
-    </div>
+    </TOOLTIPDIV>
+    </CARD>
     
     
   );

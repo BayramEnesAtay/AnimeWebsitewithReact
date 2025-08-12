@@ -1,19 +1,34 @@
 import React, { useContext } from "react";
 import {DataContext} from "./Context";
-
-import '../Style/Story.css';
+import styled from "styled-components";
 
 export default function Story()
 {
   let data={};
   data=useContext(DataContext);
 
+  const IMG=styled.img`
+    border-radius: 15px;
+    margin-left: 50px;
+    margin-top: 50px;
+  `
+  const P=styled.p`
+    color:rgba(255, 255, 255, 0.773);
+    line-height: 1.7;
+    margin-top: 50px;
+  `
+  const DIV=styled.div`
+    display: grid;
+    grid-template-columns: 0.2fr 0.5fr;
+    column-gap: 40px;
+  `
+
   return(
-    <div className="storydiv">
+    <DIV>
       {data.images && data.images.jpg && (
-        <img src={data.images.jpg.image_url} className="childimg"/>
+        <IMG src={data.images.jpg.image_url}/>
       )}
-      <p className="childparagrafh">{data.synopsis}</p>
-    </div>
+      <P>{data.synopsis}</P>
+    </DIV>
   );
 }
