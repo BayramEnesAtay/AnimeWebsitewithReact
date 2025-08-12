@@ -1,5 +1,5 @@
 import React from "react";
-import API from './API';
+import Content from './Content';
 import '../Style/Cardrow.css';
 import Card from './Card';
 import Footer from "./Footer";

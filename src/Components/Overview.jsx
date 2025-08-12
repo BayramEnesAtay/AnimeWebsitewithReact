@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import '../Style/Overview.css';
-import {DataContext} from'../Context'
+import {DataContext} from'./Context'
 
 export default function Overview()
 {

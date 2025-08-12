@@ -1,6 +1,6 @@
 import React from "react";
 import '../Style/Footer.css';
-import API from "./API";
+import Content from "./Content";
 
 export default function Footer({pagearray,setpagecount})
 { 

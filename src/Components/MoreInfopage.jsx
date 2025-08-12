@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import '../Style/MoreInfopage.css'
 import { Outlet } from "react-router-dom";
-import { DataContext } from "../Context";
+import { DataContext } from "./Context";
 
 
 export default function MoreInfopage()
