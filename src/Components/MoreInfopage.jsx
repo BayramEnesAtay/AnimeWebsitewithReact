@@ -38,7 +38,7 @@ export default function MoreInfopage()
             </li>
 
             <li >
-              <button className="selected"> SCORE</button>
+              <button className="selected"> COMMENTS</button>
             </li>
         </ul>
       </nav>

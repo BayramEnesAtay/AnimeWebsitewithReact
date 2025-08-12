@@ -25,7 +25,12 @@ export default function Overview()
       {data.images && data.images.jpg && (
         <img src={data.images.jpg.image_url} className="childimg2"/>
       )}
+    <div className="addtolistandfavouritebtn">
+      <button className="addlistbtn">Add to List</button>
+      <button className="favouritebtn">&#x1F90D;</button> 
     </div>
+    </div>
+    
     </>
   );
 }

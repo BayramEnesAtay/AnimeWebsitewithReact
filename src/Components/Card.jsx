@@ -47,7 +47,7 @@ export default function Card({animename,url,anumber,index,anime})
       <p id="info1" className="info">Source: {anime.source}</p>
       <p id="info2" className="info">{anime.type} • {anime.episodes} episodes</p>
       <p id="info3" className="info">Score: {anime.score}</p>
-      <p id="info4" className="info">Hello kity</p>
+      
     </div>
     </div>
     
