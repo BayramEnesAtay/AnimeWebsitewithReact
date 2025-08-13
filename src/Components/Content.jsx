@@ -1,8 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import Card from './Card';
-import Cardrow from "./Cardrow";
-import Footer from "./Footer";
+
 
 export default function Content({pagecount,setdata})
 { 

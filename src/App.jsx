@@ -1,11 +1,10 @@
-import HomePage from "./Components/HomePage.jsx";
-import API from "./Components/Content.jsx"
-import Cardrow from "./Components/Cardrow.jsx";
+import HomePage from "./components/homepage/HomePage.jsx";
+import Cardrow from "./components/cardrow/Cardrow.jsx";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MoreInfopage from "./Components/MoreInfopage.jsx";
-import Story from "./Components/Story.jsx";
-import Overview from "./Components/Overview.jsx";
+import MoreInfopage from "./components/moreinfopage/MoreInfopage.jsx";
+import Story from "./components/story/Story.jsx";
+import Overview from "./components/overview/Overview.jsx";
 
 export default function App()
 {

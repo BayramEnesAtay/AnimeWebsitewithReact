@@ -1,19 +1,10 @@
 import React from "react";
-import Content from "./Content";
-import styled from "styled-components";
+import { Pagination} from "./Style";
 
 export default function Footer({pagearray,setpagecount})
 { 
-  const DIV=styled.div`
-    display: flex;
-    flex-direction: row;
-    column-gap: 5px;
-    justify-content: center;
-    align-items: center;
-  `
-
   return(
-    <DIV>
+    <Pagination>
       {
         pagearray.map(num=>
         (
@@ -21,7 +12,7 @@ export default function Footer({pagearray,setpagecount})
         )
         )
       }
-    </DIV>
+    </Pagination>
   );
   
   

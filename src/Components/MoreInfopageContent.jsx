@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect} from "react";
-import MoreInfopage from "./MoreInfopage";
+
 
 export default function MoreInfopageContent({id,setdata})
 {
