@@ -7,18 +7,20 @@ import Cardrow from "./Cardrow";
 
 export default function HomePage()
 {
+  const main_color="#de5499";
+
   const BUTTON=styled.button`
     width: 70px;
     border-radius: 10px;
-    border-color: #de5499;
+    border-color: ${main_color};
     color:#de5499;
     transition: color 0.4s , background-color 0.4s;
     &:focus{
-      border:2px solid #de5499;
+      border:2px solid ${main_color};
       outline: none;
     }
     &:hover{
-      background-color: #de5499;
+      background-color: ${main_color};
       color:white;
       cursor: pointer;
     }
@@ -34,7 +36,7 @@ export default function HomePage()
   const INPUT=styled.input`
     width: 210px;
     border-radius:9px ;
-    border-color: #de5499;
+    border-color: ${main_color};
   `
   const [data,setdata]=useState([]);
   const [pagecount,setpagecount]=useState(1);

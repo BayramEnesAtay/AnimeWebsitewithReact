@@ -7,6 +7,8 @@ import MoreInfopageContent from "./MoreInfopageContent";
 
 export default function MoreInfopage()
 { 
+  const color="rgb(58, 58, 170)";
+
   const navigation=useNavigate();
   let {id}=useParams();
   const [data,setdata]=useState({});
@@ -28,14 +30,14 @@ export default function MoreInfopage()
     display:flex ;
     flex-direction: row;
     gap:100px;
-    background-color: rgb(58, 58, 170);
+    background-color: ${color};
   `
   const BUTTON=styled.button`
     color:white;
     font-size: 15px;
     padding: 10px;
     font-family: Roboto Mono;
-    background-color:rgb(58, 58, 170);
+    background-color:${color};
     border:none;
     &:hover{
       cursor: pointer;
