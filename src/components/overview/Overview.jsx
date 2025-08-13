@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import {DataContext} from'../Context'
 import {OverviewContent,InfoItem,MainInfoPanel,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton} from './Style';
 
-export default function Overview()
-{
+const Overview=()=>{
   let data={}
   data=useContext(DataContext);
 
@@ -25,12 +24,15 @@ export default function Overview()
       {data.images && data.images.jpg && (
         <AnimeImg src={data.images.jpg.image_url}/>
       )}
+      
     <ActionButtons>
       <AddlistButton>Add to List</AddlistButton>
       <LikeButton>&#x1F90D;</LikeButton> 
     </ActionButtons>
+    <iframe src={data.trailer?.embed_url}frameBorder="0" width="200px" height="200px"></iframe>
     </MainInfoPanel>
     
     </>
   );
 }
+export default Overview;

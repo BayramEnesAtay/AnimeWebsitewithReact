@@ -2,11 +2,11 @@ import { useNavigate,useParams} from "react-router-dom";
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { DataContext } from "../Context";
+import React from "react";
 import MoreInfopageContent from "../MoreInfopageContent";
 import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Style";
 
-export default function MoreInfopage()
-{ 
+const MoreInfopage=()=>{ 
   const navigation=useNavigate();
   let {id}=useParams();
   const [data,setdata]=useState({});
@@ -37,3 +37,4 @@ export default function MoreInfopage()
     </DetailHeader>
 );
 }
+export default MoreInfopage;

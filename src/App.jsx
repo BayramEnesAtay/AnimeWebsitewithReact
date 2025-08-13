@@ -5,9 +5,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import MoreInfopage from "./components/moreinfopage/MoreInfopage.jsx";
 import Story from "./components/story/Story.jsx";
 import Overview from "./components/overview/Overview.jsx";
+import React from "react";
 
-export default function App()
-{
+
+const App=()=>{
   return(
     <BrowserRouter>
       <Routes>
@@ -21,6 +22,7 @@ export default function App()
   );
   
 }
+export default App;
 
 
 

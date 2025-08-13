@@ -4,29 +4,25 @@ import { useState } from "react";
 import MoreInfopage from "../moreinfopage/MoreInfopage";
 import { useNavigate } from "react-router-dom";
 
-export default function Card({animename,url,anumber,index,anime})
-{ 
+const  Card=({animename,url,anumber,index,anime}) =>{
+
   const [showtooltip,setshowtooltip]=useState(Array(anumber).fill(false));
   const navigate=useNavigate();
 
-  function handlehover(i)
-  {
+  const handlehover=(i)=>{
     const nextshowtooltip=showtooltip.slice();
     nextshowtooltip[i]=true;
     setshowtooltip(nextshowtooltip);
   }
 
-  function handleoffhover(i)
-  {
+  const handleoffhover=(i)=>{
     const nextshowtooltip=showtooltip.slice();
     nextshowtooltip[i]=false;
     setshowtooltip(nextshowtooltip);
   }
 
-  function onCardClik()
-  {
-    navigate(`/anime/${anime.mal_id}`);
-  }
+  const onCardClik=()=>navigate(`/anime/${anime.mal_id}`);
+  
   
   return(
 
@@ -48,3 +44,4 @@ export default function Card({animename,url,anumber,index,anime})
     
   );
 }
+export default Card;

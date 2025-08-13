@@ -2,8 +2,7 @@ import React, { useContext } from "react";
 import { DataContext } from "../Context";
 import {StorySection,AnimeImg,StoryText} from './Style';
 
-export default function Story()
-{
+const Story=()=>{
   let data={};
   data=useContext(DataContext);
 
@@ -16,3 +15,4 @@ export default function Story()
     </StorySection>
   );
 }
+export default Story;

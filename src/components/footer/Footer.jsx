@@ -1,8 +1,7 @@
 import React from "react";
 import { Pagination} from "./Style";
 
-export default function Footer({pagearray,setpagecount})
-{ 
+const Footer=({pagearray,setpagecount})=>{ 
   return(
     <Pagination>
       {
@@ -14,6 +13,5 @@ export default function Footer({pagearray,setpagecount})
       }
     </Pagination>
   );
-  
-  
 }
+export default Footer;

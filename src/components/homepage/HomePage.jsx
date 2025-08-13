@@ -5,8 +5,7 @@ import Cardrow from "../cardrow/Cardrow";
 import {Header,Input,SearchButton} from "./Style";
 import Content from "../Content";
 
-export default function HomePage()
-{
+const HomePage=()=>{
   
   const [data,setdata]=useState([]);
   const [pagecount,setpagecount]=useState(1);
@@ -29,3 +28,4 @@ export default function HomePage()
    
   );
 }
+export default HomePage;
