@@ -6,11 +6,13 @@ import DetailPage from "./components/detailpage/DetailPage.jsx";
 import Story from "./components/story/Story.jsx";
 import Overview from "./components/overview/Overview.jsx";
 import React from "react";
+import GlobalStyle from "./globalStyles.js";
 
 
 const App=()=>{
   return(
     <BrowserRouter>
+    <GlobalStyle />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/anime/:id"  element={<DetailPage />} >
