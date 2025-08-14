@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {DataContext} from'../Context'
-import {OverviewContent,InfoItem,MainInfoPanel,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton} from './Style';
+import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Style';
 
 const Overview=()=>{
   let data={}
@@ -19,7 +19,8 @@ const Overview=()=>{
         <InfoItem> {data.studios[0].name} Studio</InfoItem>
       )}
     </OverviewContent>  
-    <MainInfoPanel> 
+    <MainInfoPanel>
+    <MainInfo> 
       <Title>{data.title}</Title>
       {data.images && data.images.jpg && (
         <AnimeImg src={data.images.jpg.image_url}/>
@@ -29,9 +30,17 @@ const Overview=()=>{
       <AddlistButton>Add to List</AddlistButton>
       <LikeButton>&#x1F90D;</LikeButton> 
     </ActionButtons>
-    <iframe src={data.trailer?.embed_url}frameBorder="0" width="200px" height="200px"></iframe>
+    </MainInfo>
+    <Trailer>
+      {data.trailer?.embed_url && (
+        <TrailerTopic>Trailer</TrailerTopic>
+      )}
+      
+      {data.trailer && data.trailer.embed_url &&(
+      <iframe src={data.trailer.embed_url}frameBorder="0" width="300px" height="150px"></iframe>
+      )}
+    </Trailer>
     </MainInfoPanel>
-    
     </>
   );
 }

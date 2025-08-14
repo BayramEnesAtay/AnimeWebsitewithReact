@@ -3,7 +3,7 @@ import Card from '../card/Card';
 import Footer from "../footer/Footer";
 import {Content} from "./Style";
 
-const Cardrow=({data})=>{
+const AnimeList=({data})=>{
   return(
     <Content>
     {data.map((anime,index)=>{
@@ -15,4 +15,4 @@ const Cardrow=({data})=>{
     
   );
 }
-export default Cardrow;
+export default AnimeList;

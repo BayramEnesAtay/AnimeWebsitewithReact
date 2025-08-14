@@ -1,7 +1,7 @@
 import React from "react";
 import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Style";
 import { useState } from "react";
-import MoreInfopage from "../moreinfopage/MoreInfopage";
+import DetailPage from "../detailpage/DetailPage";
 import { useNavigate } from "react-router-dom";
 
 const  Card=({animename,url,anumber,index,anime}) =>{

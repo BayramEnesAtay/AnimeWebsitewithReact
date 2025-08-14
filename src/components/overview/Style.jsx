@@ -30,7 +30,7 @@ export const InfoItem=styled.div`
       justify-content: center;
     }
   `
-export  const MainInfoPanel=styled.div`
+export  const MainInfo=styled.div`
     display: flex;
     flex-direction: column;
     width:fit-content;
@@ -70,3 +70,23 @@ export  const LikeButton=styled.button`
     border-radius: 5px;
     cursor: pointer;
   `
+export const Trailer=styled.div`
+
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+  
+`
+export const MainInfoPanel=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:50px;
+`
+export const TrailerTopic=styled.p`
+  color: #9fadbd;
+  margin:0px;
+  margin-bottom:10px;
+  font-size:17px;
+  align-self: flex-start;
+`

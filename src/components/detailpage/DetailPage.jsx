@@ -1,19 +1,18 @@
 import { useNavigate,useParams} from "react-router-dom";
-import { useState } from "react";
+import useDetailFetch from '../hooks/useDetailFetch';
 import { Outlet } from "react-router-dom";
 import { DataContext } from "../Context";
 import React from "react";
-import MoreInfopageContent from "../MoreInfopageContent";
 import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Style";
 
-const MoreInfopage=()=>{ 
+const DetailPage=()=>{ 
   const navigation=useNavigate();
   let {id}=useParams();
-  const [data,setdata]=useState({});
+  
+  const {data}=useDetailFetch(id);
 
   return(
     <DetailHeader>
-      <MoreInfopageContent id={id} setdata={setdata}/>
       <Title >{data.title}</Title>
       <TitleJapanese >{data.title_japanese}</TitleJapanese>
       <Navbar>
@@ -37,4 +36,4 @@ const MoreInfopage=()=>{
     </DetailHeader>
 );
 }
-export default MoreInfopage;
+export default DetailPage;
