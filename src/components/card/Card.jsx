@@ -1,5 +1,5 @@
 import React from "react";
-import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Style";
+import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Styled";
 import { useState } from "react";
 import DetailPage from "../detailpage/DetailPage";
 import { useNavigate } from "react-router-dom";

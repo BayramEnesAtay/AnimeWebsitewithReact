@@ -1,7 +1,7 @@
 import React from "react";
 import Card from '../card/Card';
 import Footer from "../footer/Footer";
-import {Content} from "./Style";
+import {Content} from "./Styled";
 
 const AnimeList=({data})=>{
   return(

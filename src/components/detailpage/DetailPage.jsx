@@ -1,9 +1,9 @@
 import { useNavigate,useParams} from "react-router-dom";
-import useDetailFetch from '../hooks/useDetailFetch';
+import useDetailFetch from '../../hooks/useDetailFetch';
 import { Outlet } from "react-router-dom";
 import { DataContext } from "../Context";
 import React from "react";
-import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Style";
+import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Styled";
 
 const DetailPage=()=>{ 
   const navigation=useNavigate();

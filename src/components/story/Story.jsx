@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DataContext } from "../Context";
-import {StorySection,AnimeImg,StoryText} from './Style';
+import {StorySection,AnimeImg,StoryText} from './Styled';
 
 const Story=()=>{
   let data={};

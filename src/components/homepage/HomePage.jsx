@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import Footer from "../footer/Footer";
 import AnimeList from "../animelist/AnimeList";
-import {Header,Input,SearchButton} from "./Style";
-import useMainFetch from "../hooks/useMainFetch";
+import {Header,Input,SearchButton} from "./Styled";
+import useMainFetch from "../../hooks/useMainFetch";
 
 const HomePage=()=>{
   const [pagecount,setpagecount]=useState(1);

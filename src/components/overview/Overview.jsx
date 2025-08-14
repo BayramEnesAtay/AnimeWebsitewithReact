@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import {DataContext} from'../Context'
-import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Style';
+import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Styled';
 
 const Overview=()=>{
   let data={}
