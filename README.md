@@ -1,6 +1,3 @@
-Tamamdır 👍 PDF’teki README kısmını sana kopyalanabilir şekilde aynen aktarıyorum:
-
----
 
 # ANIMEWEBSITEWITHREACT
 
