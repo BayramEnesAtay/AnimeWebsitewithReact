@@ -1,24 +1,26 @@
-import React from "react";
+import React, { useReducer } from "react";
 import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Styled";
-import { useState } from "react";
 import DetailPage from "../detailpage/DetailPage";
 import { useNavigate } from "react-router-dom";
+import { TooltipReducer } from "../reducer/TooltipReducer";
 
 const  Card=({animename,url,anumber,index,anime}) =>{
 
-  const [showtooltip,setshowtooltip]=useState(Array(anumber).fill(false));
+  const [showtooltip,dispatch]=useReducer(TooltipReducer,Array(anumber).fill(false));
   const navigate=useNavigate();
 
   const handlehover=(i)=>{
-    const nextshowtooltip=showtooltip.slice();
-    nextshowtooltip[i]=true;
-    setshowtooltip(nextshowtooltip);
+    dispatch({
+      type:"onhover",
+      payload:i
+    })
   }
 
   const handleoffhover=(i)=>{
-    const nextshowtooltip=showtooltip.slice();
-    nextshowtooltip[i]=false;
-    setshowtooltip(nextshowtooltip);
+    dispatch({
+      type:"ofhover",
+      payload:i
+    })
   }
 
   const onCardClik=()=>navigate(`/anime/${anime.mal_id}`);

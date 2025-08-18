@@ -5,7 +5,6 @@ import {Header,Input,SearchButton} from "./Styled";
 import {HomeDataContextProvider} from "../context/HomeDataContext";
 
 const HomePage=()=>{
-  
 
   return(
     <> 
