@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import DetailDataContext from'../context/DetailDataContext'
 import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Styled';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 const Overview=()=>{
   let data={}
@@ -28,7 +29,7 @@ const Overview=()=>{
       
     <ActionButtons>
       <AddlistButton>Add to List</AddlistButton>
-      <LikeButton>&#x1F90D;</LikeButton> 
+      <LikeButton><FavoriteIcon fontSize="small"></FavoriteIcon></LikeButton> 
     </ActionButtons>
     </MainInfo>
     <Trailer>

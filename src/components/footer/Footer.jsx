@@ -1,20 +1,24 @@
-import React, { useContext } from "react";
-import { Pagination} from "./Styled";
+import React from "react";
+import { useContext } from "react";
+import { Pagination1} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
+import Pagination from '@mui/material/Pagination';
+import { PaginationItem } from "@mui/material";
 
 const Footer=()=>{
-  const {pagearray,setpagecount}=useContext(HomeDataContext);
-  
+  const {setpagecount,pagecount}=useContext(HomeDataContext);
+  const handleChange = (event,newPage) => {
+    setpagecount(newPage);
+  };
+
   return(
-    <Pagination>
-      {
-        pagearray.map(num=>
-        (
-          <button onClick={()=>setpagecount(num)} key={num}>{num}</button>
-        )
-        )
-      }
-    </Pagination>
+    <Pagination1>
+      <Pagination   sx={{
+    '& .MuiPaginationItem-root': {
+      color: 'white',
+      borderColor: 'white',
+    }}}  color="secondary" count={10} page={pagecount} showFirstButton showLastButton  onChange={handleChange}/>
+    </Pagination1>
   );
 }
 export default Footer;

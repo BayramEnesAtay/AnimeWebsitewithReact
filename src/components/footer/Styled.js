@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export  const Pagination=styled.div`
+export  const Pagination1=styled.div`
     display: flex;
     flex-direction: row;
     column-gap: 5px;
