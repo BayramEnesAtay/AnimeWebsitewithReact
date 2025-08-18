@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import {DataContext} from'../Context'
+import DetailDataContext from'../context/DetailDataContext'
 import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Styled';
 
 const Overview=()=>{
   let data={}
-  data=useContext(DataContext);
+  data=useContext(DetailDataContext);
 
   return(
     <>
     <OverviewContent >
-      <InfoItem>&#128250; {data.type} { (data.episodes)} (Episodes) </InfoItem>
-      <InfoItem>Score: {data.score}</InfoItem>
-      <InfoItem>Rank: {data.rank}</InfoItem>
+      <InfoItem>&#128250; {data?.type} { (data?.episodes)} (Episodes) </InfoItem>
+      <InfoItem>Score: {data?.score}</InfoItem>
+      <InfoItem>Rank: {data?.rank}</InfoItem>
       {data.season && data.year && (
         <InfoItem>&#128197; {data.season} {data.year}</InfoItem>
       )}
@@ -21,7 +21,7 @@ const Overview=()=>{
     </OverviewContent>  
     <MainInfoPanel>
     <MainInfo> 
-      <Title>{data.title}</Title>
+      <Title>{data?.title}</Title>
       {data.images && data.images.jpg && (
         <AnimeImg src={data.images.jpg.image_url}/>
       )}

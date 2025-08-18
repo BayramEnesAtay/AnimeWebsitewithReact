@@ -1,27 +1,22 @@
 import React from "react";
-import { useState } from "react";
 import Footer from "../footer/Footer";
 import AnimeList from "../animelist/AnimeList";
 import {Header,Input,SearchButton} from "./Styled";
-import useMainFetch from "../../hooks/useMainFetch";
+import {HomeDataContextProvider} from "../context/HomeDataContext";
 
 const HomePage=()=>{
-  const [pagecount,setpagecount]=useState(1);
-  const pagearray=[];
-  const {data}=useMainFetch(pagecount);
+  
 
-  for(let i=1;i<=10;i++)
-  {
-    pagearray.push(i);
-  }
   return(
     <> 
+    <HomeDataContextProvider>
     <Header >
       <Input  placeholder="Looking for something specific? " type="text" />
       <SearchButton >Search</SearchButton>
     </Header>
-    <AnimeList data={data} />
-    <Footer pagearray={pagearray} setpagecount={setpagecount} />
+    <AnimeList />
+    <Footer />
+    </HomeDataContextProvider>
     </>
    
   );

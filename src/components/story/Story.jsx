@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
-import { DataContext } from "../Context";
+import  DetailDataContext  from "../context/DetailDataContext";
 import {StorySection,AnimeImg,StoryText} from './Styled';
 
 const Story=()=>{
   let data={};
-  data=useContext(DataContext);
+  data=useContext(DetailDataContext);
 
   return(
     <StorySection>
       {data.images && data.images.jpg && (
         <AnimeImg src={data.images.jpg.image_url}/>
       )}
-      <StoryText>{data.synopsis}</StoryText>
+      <StoryText>{data?.synopsis}</StoryText>
     </StorySection>
   );
 }

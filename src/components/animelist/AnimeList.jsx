@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from '../card/Card';
 import Footer from "../footer/Footer";
 import {Content} from "./Styled";
+import HomeDataContext from "../context/HomeDataContext";
 
-const AnimeList=({data})=>{
+const AnimeList=()=>{
+  const {data}=useContext(HomeDataContext);
+
   return(
     <Content>
     {data.map((anime,index)=>{

@@ -1,20 +1,18 @@
-import { useNavigate,useParams} from "react-router-dom";
-import useDetailFetch from '../../hooks/useDetailFetch';
+import { useNavigate} from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import { DataContext } from "../Context";
-import React from "react";
+import DetailDataContext, {  DetailDataContextProvider } from "../context/DetailDataContext";
+import React, { useContext } from "react";
 import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Styled";
 
 const DetailPage=()=>{ 
   const navigation=useNavigate();
-  let {id}=useParams();
-  
-  const {data}=useDetailFetch(id);
+  const data=useContext(DetailDataContext);
 
   return(
     <DetailHeader>
-      <Title >{data.title}</Title>
-      <TitleJapanese >{data.title_japanese}</TitleJapanese>
+      
+      <Title >{data?.title}</Title>
+      <TitleJapanese >{data?.title_japanese}</TitleJapanese>
       <Navbar>
         <MenuList >
             <MenuItem >
@@ -30,9 +28,7 @@ const DetailPage=()=>{
             </MenuItem>
         </MenuList>
       </Navbar>
-      <DataContext.Provider value={data}>
-        <Outlet />
-      </DataContext.Provider>
+      <Outlet />
     </DetailHeader>
 );
 }

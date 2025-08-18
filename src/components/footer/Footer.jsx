@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Pagination} from "./Styled";
+import HomeDataContext from "../context/HomeDataContext";
 
-const Footer=({pagearray,setpagecount})=>{ 
+const Footer=()=>{
+  const {pagearray,setpagecount}=useContext(HomeDataContext);
+  
   return(
     <Pagination>
       {

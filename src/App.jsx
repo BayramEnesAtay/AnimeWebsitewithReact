@@ -7,15 +7,16 @@ import Story from "./components/story/Story.jsx";
 import Overview from "./components/overview/Overview.jsx";
 import React from "react";
 import GlobalStyle from "../globalStyles.js";
+import { DetailDataContextProvider } from "./components/context/DetailDataContext.jsx";
 
 
 const App=()=>{
   return(
-    <BrowserRouter>
+    <BrowserRouter> 
     <GlobalStyle />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/anime/:id"  element={<DetailPage />} >
+        <Route path="/anime/:id"  element={<DetailDataContextProvider><DetailPage /></DetailDataContextProvider>} >
           <Route index element={<Overview />} />
           <Route path="story" element={<Story />} />
         </Route>
