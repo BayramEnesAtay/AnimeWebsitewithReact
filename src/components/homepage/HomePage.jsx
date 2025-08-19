@@ -1,8 +1,9 @@
 import React from "react";
 import Footer from "../footer/Footer";
 import AnimeList from "../animelist/AnimeList";
-import {Header,Input,SearchButton} from "./Styled";
+import {Header} from "./Styled";
 import {HomeDataContextProvider} from "../context/HomeDataContext";
+import Navbar from "../appbar/Navbar";
 
 const HomePage=()=>{
 
@@ -10,8 +11,7 @@ const HomePage=()=>{
     <> 
     <HomeDataContextProvider>
     <Header >
-      <Input  placeholder="Looking for something specific? " type="text" />
-      <SearchButton >Search</SearchButton>
+      <Navbar />
     </Header>
     <AnimeList />
     <Footer />
