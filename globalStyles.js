@@ -7,7 +7,7 @@ const GlobalStyle=createGlobalStyle`
     height: 100%;
     margin:0;
     padding:0;
-    background-color: #11161d;
+    background-color: #0A0A0F;
     overflow-x: hidden;
   }
   html{
@@ -15,7 +15,7 @@ const GlobalStyle=createGlobalStyle`
     padding:0;
     width: 100%;
     height: 100%;
-    background-color: #11161d;
+    background-color: #0A0A0F;
     overflow-x: hidden;
   }
   #root{

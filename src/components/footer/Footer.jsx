@@ -1,24 +1,13 @@
 import React from "react";
-import { useContext } from "react";
-import { Pagination1} from "./Styled";
-import HomeDataContext from "../context/HomeDataContext";
-import Pagination from '@mui/material/Pagination';
-import { PaginationItem } from "@mui/material";
+import { FooterCompany, FooterInfo, FooterMotto } from "./Styled";
 
 const Footer=()=>{
-  const {setpagecount,pagecount}=useContext(HomeDataContext);
-  const handleChange = (event,newPage) => {
-    setpagecount(newPage);
-  };
 
   return(
-    <Pagination1>
-      <Pagination   sx={{
-    '& .MuiPaginationItem-root': {
-      color: 'white',
-      borderColor: 'white',
-    }}}  color="secondary" count={10} page={pagecount} showFirstButton showLastButton  onChange={handleChange}/>
-    </Pagination1>
+    <FooterInfo>
+      <FooterCompany>MyAnimeList</FooterCompany>
+      <FooterMotto><p>Your gateway to the world of anime. Discover, explore, and enjoy.</p></FooterMotto>
+    </FooterInfo>
   );
 }
 export default Footer;

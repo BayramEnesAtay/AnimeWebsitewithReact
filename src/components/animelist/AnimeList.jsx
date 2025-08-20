@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import Card from '../card/Card';
-import Footer from "../footer/Footer";
 import {Content} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
 

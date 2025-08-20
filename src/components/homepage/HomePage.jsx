@@ -1,10 +1,11 @@
 import React from "react";
-import Footer from "../footer/Footer";
+import PagenationComp from "../pagination/PaginationComp";
 import AnimeList from "../animelist/AnimeList";
 import {Header} from "./Styled";
 import {HomeDataContextProvider} from "../context/HomeDataContext";
 import Navbar from "../appbar/Navbar";
-
+import Section from "../homepagesection/Section";
+import Footer from "../footer/Footer";
 const HomePage=()=>{
 
   return(
@@ -13,8 +14,10 @@ const HomePage=()=>{
     <Header >
       <Navbar />
     </Header>
+    <Section />
     <AnimeList />
-    <Footer />
+    <PagenationComp />
+    <Footer/>
     </HomeDataContextProvider>
     </>
    
