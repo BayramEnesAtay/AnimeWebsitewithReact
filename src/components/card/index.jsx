@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Styled";
-import DetailPage from "../detailpage/DetailPage";
+import DetailPage from "../detailpage";
 import { useNavigate } from "react-router-dom";
 import { TooltipReducer } from "../reducer/TooltipReducer";
 

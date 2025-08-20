@@ -1,19 +1,18 @@
 import React from "react";
 import { useState,useEffect } from "react";
 
-const useDetailFetch=(id)=>{
-  const [data,setdata]=useState({});  
+const useMainPage=(pagecount)=>{
+  const [data,setdata]=useState([]);
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
 
   useEffect(()=>{
-    setLoading(true);
-    const url="https://api.jikan.moe/v4/anime/"+id;
+      setLoading(true);
+      const url="https://api.jikan.moe/v4/anime?page="+pagecount;
       fetch(url)
         .then(Response=>Response.json())
         .then(json =>{
-          setdata(json.data);
-            
+          setdata(json.data);  
         })
         .catch((err)=>{
           setError(err);
@@ -21,8 +20,9 @@ const useDetailFetch=(id)=>{
         .finally(()=>{
           setLoading(false);
         });
-  },[id])
+        
+  },[pagecount]);
 
-  return {data,loading,error};
+  return {data,error,loading};
 }
-export default useDetailFetch;
+export default useMainPage;

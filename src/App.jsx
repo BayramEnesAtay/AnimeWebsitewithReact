@@ -1,13 +1,13 @@
-import HomePage from "./components/homepage/HomePage.jsx";
-import AnimeList from "./components/animelist/AnimeList.jsx";
+import HomePage from "./components/homepage/index.jsx";
+import AnimeList from "./components/animelist/index.jsx";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import DetailPage from "./components/detailpage/DetailPage.jsx";
-import Story from "./components/story/Story.jsx";
-import Overview from "./components/overview/Overview.jsx";
+import DetailPage from "./components/detailpage/index.jsx";
+import Story from "./components/story/index.jsx";
+import Overview from "./components/overview/index.jsx";
 import React from "react";
 import GlobalStyle from "../globalStyles.js";
-import { DetailDataContextProvider } from "./components/context/DetailDataContext.jsx";
+import { DetailDataProvider } from "./components/context/DetailDataContext.jsx";
 
 
 const App=()=>{
@@ -16,7 +16,7 @@ const App=()=>{
     <GlobalStyle />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/anime/:id"  element={<DetailDataContextProvider><DetailPage /></DetailDataContextProvider>} >
+        <Route path="/anime/:id"  element={<DetailDataProvider><DetailPage /></DetailDataProvider>} >
           <Route index element={<Overview />} />
           <Route path="story" element={<Story />} />
         </Route>

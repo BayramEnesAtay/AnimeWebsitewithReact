@@ -1,12 +1,12 @@
 import React, { createContext } from "react";
-import useDetailFetch from "../../hooks/useDetailFetch";
+import useDetailPage from "../../hooks/useDetailPage";
 import { useParams } from "react-router-dom";
 
 const  DetailDataContext=createContext();
 
-export  const DetailDataContextProvider=({children})=>{
+export  const DetailDataProvider=({children})=>{
   let {id}=useParams();
-  const {data}=useDetailFetch(id);
+  const {data}=useDetailPage(id);
   return(
     <DetailDataContext.Provider value={data}>
       {children}

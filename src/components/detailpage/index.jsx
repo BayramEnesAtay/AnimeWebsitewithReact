@@ -1,6 +1,6 @@
 import { useNavigate} from "react-router-dom";
 import { Outlet } from "react-router-dom";
-import DetailDataContext, {  DetailDataContextProvider } from "../context/DetailDataContext";
+import DetailDataContext from "../context/DetailDataContext";
 import React, { useContext } from "react";
 import {Title,TitleJapanese,MenuList,SectionButton,MenuItem,Navbar,DetailHeader} from "./Styled";
 

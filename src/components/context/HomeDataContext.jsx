@@ -1,12 +1,12 @@
 import React from "react";
 import { createContext,useState } from "react";
-import useMainFetch from "../../hooks/useMainFetch";
+import useMainPage from "../../hooks/useMainPage";
 
 const HomeDataContext=createContext();
 
-export const HomeDataContextProvider=({children})=>{
+export const HomeDataProvider=({children})=>{
   const [pagecount,setpagecount]=useState(1);
-  const {data}=useMainFetch(pagecount);
+  const {data}=useMainPage(pagecount);
 
   return(
     <HomeDataContext.Provider value={{data,setpagecount,pagecount}}>
