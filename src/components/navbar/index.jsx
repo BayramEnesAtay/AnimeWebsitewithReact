@@ -9,8 +9,6 @@ import MenuIcon from '@mui/icons-material/Menu';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import SearchIcon from '@mui/icons-material/Search';
-import { Search,SearchIconWrapper ,StyledInputBase} from './Styled';
 import { LeftSection,RightSection,Icon_Typography } from './Styled';
 
 const  Navbar=()=> {
@@ -49,15 +47,6 @@ const  Navbar=()=> {
           }} >Genres</Button>
           </LeftSection>
           <RightSection>
-          <Search sx={{padding:0}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
           <Button color="inherit" size="small" sx={{  padding:0,textTransform: "none" }}><NotificationsNoneIcon /></Button>
           <Button color="inherit" sx={{  padding:0,textTransform: "none" }}><PersonIcon  /></Button>
           </RightSection>
