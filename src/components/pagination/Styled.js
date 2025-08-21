@@ -6,4 +6,6 @@ export  const Pagination1=styled.div`
     column-gap: 5px;
     justify-content: center;
     align-items: center;
+    padding-top:10px;
+    padding-bottom:10px;
   `

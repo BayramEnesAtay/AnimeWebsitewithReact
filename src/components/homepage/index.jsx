@@ -6,6 +6,8 @@ import {HomeDataProvider} from "../context/HomeDataContext";
 import Navbar from "../navbar";
 import Section from "../homepagesection";
 import Footer from "../footer";
+import Search_Filterbar from "../searchandfilterbar";
+
 const HomePage=()=>{
 
   return(
@@ -15,6 +17,7 @@ const HomePage=()=>{
       <Navbar />
     </Header>
     <Section />
+    <Search_Filterbar/>
     <AnimeList />
     <PagenationComp />
     <Footer/>
