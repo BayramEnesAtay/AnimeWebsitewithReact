@@ -1,33 +1,75 @@
 import React from "react";
 import { SectionUpdate ,Topic,Motto, SectionTittle,Section} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
-import { Search,SearchIconWrapper ,StyledInputBase} from './styled';
+import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection} from './styled';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 
 const Search_Filterbar=()=>{
   
+
+  
+
+  const [status, setStatus] = React.useState('Title A-Z');
+
+  const handleChange = (event) => {
+    setStatus(event.target.value);
+  };
+
   return(
-    <div>
-    <div>
-      <Search sx={{padding:0}}>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search for anime,characters or genres..."
-              inputProps={{ 'aria-label': 'search_filter' }}
-            />
-          </Search>
-    </div>
-    <Section>
-      <SectionTittle>
-        <Topic>Browse Collection</Topic>
-        <Motto>Find your next favourite anime from our collection</Motto>
-      </SectionTittle>
-      <SectionUpdate>
-        Updated daily
-      </SectionUpdate>
-    </Section>
-    </div>
+    <GeneralSection>
+      <Section>
+        <SectionTittle>
+          <Topic>Browse Collection</Topic>
+          <Motto>Find your next favourite anime from our collection</Motto>
+        </SectionTittle>
+        <SectionUpdate>
+          Updated daily
+        </SectionUpdate>
+      </Section>
+
+      <Search_Filter>
+        <Search sx={{padding:0,}}>
+          <SearchIconWrapper>
+            <SearchIcon />
+          </SearchIconWrapper>
+          <StyledInputBase
+            sx={{padding:0,borderRadius:"7px"}}
+            placeholder="Search for anime,characters or genres..."
+            inputProps={{ 'aria-label': 'search_filter' }}
+          />
+        </Search>
+        <Box sx={{ minWidth: 200,padding:0}}>
+          <FormControl fullWidth >
+            <Select
+              
+              value={status}
+              onChange={handleChange}
+              size="small"
+              sx={{ backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",width:200,height:32,fontSize:13,borderRadius:"7px"}}
+            >
+              
+              <MenuItem value={"Title A-Z"}>Title A-Z</MenuItem>
+              <MenuItem value={"Rating(High to Low)"}>Rating(High to low)</MenuItem>
+              <MenuItem value={"Year(New to old)"}>Year(New to old)</MenuItem>
+              <MenuItem value={"Episodes(Most to least)"}>Episodes(Most to least)</MenuItem>
+            </Select>
+          </FormControl>
+      </Box>
+
+      <FilterBtn>
+        <FilterButtonDiv>
+          <FilterAltIcon fontSize="small"/> Filters
+        </FilterButtonDiv>
+      </FilterBtn>
+      </Search_Filter>
+
+    </GeneralSection>
   );
 }
 export default Search_Filterbar;

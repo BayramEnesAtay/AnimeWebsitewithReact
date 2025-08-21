@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { styled as muistyled, alpha } from '@mui/material/styles';
+import { styled as muistyled } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import {ThemeProvider} from "@mui/material/styles";
 
@@ -34,15 +34,14 @@ export const Section=styled.div`
   flex-direction:row;
   column-gap:50px;
   align-items:center;
-  justify-content:center;
   padding-top:30px;
   padding-bottom:30px;
   justify-content: space-around;
+  position:relative;
 `
 export const Search = muistyled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: alpha("#71717a", 0.15),
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -69,7 +68,7 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     paddingTop:"5px",
     paddingBottom:"5px",
     width: '100%',
-    backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.3)",
+    backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",
     '& .MuiInputBase-input': {
       padding: theme.spacing(1, 1, 1, 0),
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -80,4 +79,38 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
       },
     },  
   }));
+
+  export const Search_Filter=styled.div`
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    column-gap:10px;
+    
+  `
+  export const FilterBtn=styled.button`
+    background-color:oklab(0.242856 0.00730701 -0.0294515 / 0.6);
+    color:#FFFF;
+    border:none;
+    border-radius:5px;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:10px;
+    padding-right:10px;
+    font-family:sans-serif;
+    
+  `
+  export const FilterButtonDiv=styled.div`
+    display:flex;
+    flext-direction:row;
+    column-gap:7px;
+    justify-content:center;
+    align-items:center;
+  `
   
+export const GeneralSection=styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  
+`
