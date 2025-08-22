@@ -60,3 +60,16 @@ export const BonusGenres=styled.span`
   background-color:#0A0A0F;
   border-radius:7.5px;
 `
+export const Episode_Year=styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+  margin-top:15px;
+  margin-bottom:10px;
+`
+export const Episode=styled.span`
+  color:#71717A;
+`
+export const Year=styled.span`
+  color:#71717A;
+`

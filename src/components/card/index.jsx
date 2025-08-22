@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres} from "./Styled";
+import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres,Episode_Year,Episode,Year} from "./Styled";
 import DetailPage from "../detailpage";
 import { useNavigate } from "react-router-dom";
 import { TooltipReducer } from "../reducer/TooltipReducer";
@@ -65,6 +65,15 @@ const  Card=({animename,url,anumber,index,anime}) =>{
             )
           })}
           <BonusGenres>+1</BonusGenres>
+          <Episode_Year>
+            <Episode>
+              {anime?.episodes} episodes
+            </Episode>
+              {anime && anime.year&&(
+                <Year>&#x2022;{anime?.year}</Year>
+              )}
+          </Episode_Year>
+          
         </CardContent>
         </CardActionArea>
     </Muicard>
