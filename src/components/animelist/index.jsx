@@ -3,10 +3,10 @@ import Card from '../card';
 import {Content} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
 
+
 const AnimeList=()=>{
   const {data}=useContext(HomeDataContext);
-
-  return(
+return(
     <Content>
     {data?.map((anime,index)=>{
       return(
@@ -14,7 +14,7 @@ const AnimeList=()=>{
       );
     })};
     </Content>
-    
-  );
+  
+);
 }
 export default AnimeList;

@@ -105,6 +105,7 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     column-gap:7px;
     justify-content:center;
     align-items:center;
+    cursor:pointer;
   `
   
 export const GeneralSection=styled.div`

@@ -1,15 +1,32 @@
-import React, { useReducer } from "react";
-import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip} from "./Styled";
+import React, { useEffect, useState } from "react";
+import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres} from "./Styled";
 import DetailPage from "../detailpage";
 import { useNavigate } from "react-router-dom";
 import { TooltipReducer } from "../reducer/TooltipReducer";
+import Muicard  from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import CardActionArea from '@mui/material/CardActionArea';
+
 
 const  Card=({animename,url,anumber,index,anime}) =>{
 
-  const [showtooltip,dispatch]=useReducer(TooltipReducer,Array(anumber).fill(false));
+  
+  const [genres,setGenres]=useState([]);
+
+  useEffect(()=>
+  {
+    if(anime?.genres)
+    {
+      setGenres(anime.genres);
+    }
+  })
+
+  //const [showtooltip,dispatch]=useReducer(TooltipReducer,Array(anumber).fill(false));
   const navigate=useNavigate();
 
-  const handlehover=(i)=>{
+  /*const handlehover=(i)=>{
     dispatch({
       type:"onhover",
       payload:i
@@ -21,28 +38,36 @@ const  Card=({animename,url,anumber,index,anime}) =>{
       type:"ofhover",
       payload:i
     })
-  }
+  }*/
 
   const onCardClik=()=>navigate(`/anime/${anime.mal_id}`);
   
   
   return(
-
-    <AnimeCard onClick={()=>onCardClik()} >
-      <AnimeImg src={url} onMouseEnter={()=>handlehover(index)} onMouseLeave={()=>handleoffhover(index)} />
-
-      <AnimeName>
-        {animename}
-      </AnimeName>
-
-      <Tooltip st={showtooltip[index]} >
-        <Info>Source: {anime.source}</Info>
-        <Info>{anime.type} • {anime.episodes} episodes</Info>
-        <Info>Score: {anime.score}</Info>
-      
-      </Tooltip>
-    </AnimeCard>
-    
+  
+    <Muicard sx={{ maxWidth: 220,padding:0,cursor:"pointer",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden"} }>
+      <CardActionArea onClick={onCardClik}>
+        <CardMedia 
+          sx={{objectFit:"cover"}}
+          component="img"
+          height="260"
+          image={url}
+          alt="anime image"
+        />
+        <CardContent sx={{backgroundColor:"#12121a", padding:"16px"} }  >
+          <Typography sx={{padding:0,margin:0,marginBottom:"15px"}} gutterBottom variant="h6" component="div" overflow="hidden" textOverflow="ellipsis" fontSize="14px" maxHeight="45px" fontFamily="sans-serif" color="#FFF" >
+            {animename}
+            
+          </Typography>
+          {genres?.slice(0,2).map((g)=>{
+            return(
+              <Genres key={genres.mal_id} >{g.name}</Genres>
+            )
+          })}
+          <BonusGenres>+1</BonusGenres>
+        </CardContent>
+        </CardActionArea>
+    </Muicard>
     
   );
 }
