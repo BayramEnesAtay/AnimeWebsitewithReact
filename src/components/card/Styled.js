@@ -73,3 +73,16 @@ export const Episode=styled.span`
 export const Year=styled.span`
   color:#71717A;
 `
+export const Rating=styled.span`
+  position:absolute;
+  top:8px;
+  right:8px;
+  background-color:rgba(39, 39, 42, 0.69);
+  color:rgb(255, 255, 255);
+  border-radius:15px;
+  font-size:12px;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-right:6px;
+  padding-left:6px;
+`

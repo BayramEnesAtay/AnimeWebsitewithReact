@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres,Episode_Year,Episode,Year} from "./Styled";
+import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres,Episode_Year,Episode,Year,Rating} from "./Styled";
 import DetailPage from "../detailpage";
 import { useNavigate } from "react-router-dom";
 import { TooltipReducer } from "../reducer/TooltipReducer";
@@ -46,14 +46,16 @@ const  Card=({animename,url,anumber,index,anime}) =>{
   return(
   
     <Muicard sx={{ maxWidth: 220,padding:0,cursor:"pointer",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden"} }>
-      <CardActionArea onClick={onCardClik}>
+      <CardActionArea onClick={onCardClik} sx={{position:"relative"}}>
         <CardMedia 
-          sx={{objectFit:"cover"}}
           component="img"
           height="260"
           image={url}
           alt="anime image"
         />
+        <Rating>
+          &#11088;{anime.score}
+        </Rating>
         <CardContent sx={{backgroundColor:"#12121a", padding:"16px"} }  >
           <Typography sx={{padding:0,margin:0,marginBottom:"15px"}} gutterBottom variant="h6" component="div" overflow="hidden" textOverflow="ellipsis" fontSize="14px" maxHeight="45px" fontFamily="sans-serif" color="#FFF" >
             {animename}
