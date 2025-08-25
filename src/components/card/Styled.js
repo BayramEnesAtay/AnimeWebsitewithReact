@@ -46,9 +46,7 @@ export const Genres=styled.span`
   color:rgb(161, 161, 170);
   background-color:rgb(39, 39, 42);
   margin-right:5px;
-  padding-left:3px;
-  padding-right:3px;
-  padding-top:3.5px;
+  padding:2.5px 7px;
   border-radius:7.5px;
   overflow:hidden;
   white-space:nowrap;
@@ -92,18 +90,20 @@ export const Rating=styled.span`
   padding-right:6px;
   padding-left:6px;
 `
-export const PlayIcon=styled.span`
+export const PlayIcon=styled.div`
   opacity:0;
   position:absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -50%);
+  display:flex;
   font-size:25px; 
   padding-top:8px;
+  line-height:1;
   padding-bottom:8px;
-  padding-left:13px;
-  padding-right:13px;
-  border-radius:25px;
+  padding-left:12px;
+  padding-right:10px;
+  border-radius:50%;
   color:rgb(255, 255, 255);
   font-family:sans-serif;
   background-color:oklab(0.585342 0.0253079 -0.202452 / 1);

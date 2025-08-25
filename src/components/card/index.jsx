@@ -86,7 +86,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
           &#11088;{anime.score}
         </Rating>
         <PlayIcon className="play-icon">
-          &#9655;
+          &#9654;
         </PlayIcon>
         <GradientDiv className="gradient" />
         </Box>
@@ -96,7 +96,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
         } } }  >
           <Typography className="anime-name" sx={{transition:"color 0.3s",padding:0,margin:0,marginBottom:"15px"}}  variant="h6" component="div" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif" color="#FFF" >
             {animename}
-            </Typography>T
+            </Typography>
         
           
           {genres?.slice(0,2).map((g)=>{
