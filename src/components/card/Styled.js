@@ -52,6 +52,12 @@ export const Genres=styled.span`
   border-radius:7.5px;
   overflow:hidden;
   white-space:nowrap;
+  transition:color 0.2s, background-color 0.2s;
+  &:hover{
+    color:#fff;
+    background-color:#6366f1; 
+    transition:color 0.2s background-color 0.2s;
+  }
 `
 export const BonusGenres=styled.span`
   font-size:10.5px;
@@ -72,4 +78,44 @@ export const Episode=styled.span`
 `
 export const Year=styled.span`
   color:#71717A;
+`
+export const Rating=styled.span`
+  position:absolute;
+  top:8px;
+  right:8px;
+  background-color:rgba(39, 39, 42, 0.69);
+  color:rgb(255, 255, 255);
+  border-radius:15px;
+  font-size:12px;
+  padding-top:3px;
+  padding-bottom:3px;
+  padding-right:6px;
+  padding-left:6px;
+`
+export const PlayIcon=styled.span`
+  opacity:0;
+  position:absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -10%);
+  font-size:25px; 
+  padding-top:8px;
+  padding-bottom:8px;
+  padding-left:13px;
+  padding-right:13px;
+  border-radius:25px;
+  color:rgb(255, 255, 255);
+  font-family:sans-serif;
+  background-color:oklab(0.585342 0.0253079 -0.202452 / 1);
+  transition: opacity 0.3s;
+`
+export const GradientDiv=styled.div`
+  opacity:0;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  height:100%;
+  width:108%;
+  background-image: linear-gradient(to top,rgba(0,0,0,0.6),transparent);
 `

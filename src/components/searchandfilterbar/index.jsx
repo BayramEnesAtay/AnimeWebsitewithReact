@@ -34,24 +34,24 @@ const Search_Filterbar=()=>{
       </Section>
 
       <Search_Filter>
-        <Search sx={{padding:0,}}>
+        <Search sx={{padding:0,flex:1}}>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
           <StyledInputBase
-            sx={{padding:0,borderRadius:"7px"}}
+            sx={{padding:0,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             placeholder="Search for anime,characters or genres..."
             inputProps={{ 'aria-label': 'search_filter' }}
           />
         </Search>
-        <Box sx={{ minWidth: 200,padding:0}}>
+        <Box sx={{ padding:0}}>
           <FormControl fullWidth >
             <Select
               
               value={status}
               onChange={handleChange}
               size="small"
-              sx={{ backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",width:200,height:32,fontSize:13,borderRadius:"7px"}}
+              sx={{ backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",width:200,height:32,fontSize:13,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             >
               
               <MenuItem value={"Title A-Z"}>Title A-Z</MenuItem>
@@ -62,8 +62,8 @@ const Search_Filterbar=()=>{
           </FormControl>
       </Box>
 
-      <FilterBtn>
-        <FilterButtonDiv>
+      <FilterBtn >
+        <FilterButtonDiv >
           <FilterAltIcon fontSize="small"/> Filters
         </FilterButtonDiv>
       </FilterBtn>

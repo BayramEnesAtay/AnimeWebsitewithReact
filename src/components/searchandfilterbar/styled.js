@@ -32,12 +32,13 @@ export const SectionUpdate=styled.div`
 export const Section=styled.div`
   display:flex;
   flex-direction:row;
-  column-gap:50px;
-  align-items:center;
   padding-top:30px;
   padding-bottom:30px;
-  justify-content: space-around;
   position:relative;
+  justify-content:space-between;
+  margin-left:150px;
+  margin-right:150px;
+  
 `
 export const Search = muistyled('div')(({ theme }) => ({
     position: 'relative',
@@ -73,10 +74,8 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
       padding: theme.spacing(1, 1, 1, 0),
       paddingLeft: `calc(1em + ${theme.spacing(4)})`,
       transition: theme.transitions.create('width'),
-      [theme.breakpoints.up('sm')]: {
-        width: '50ch',
-        
-      },
+      width:"100%",
+     
     },  
   }));
 
@@ -85,7 +84,9 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     flex-direction:row;
     align-items:center;
     column-gap:10px;
-    
+    margin-left:150px;
+    margin-bottom:80px;
+    margin-right:150px;
   `
   export const FilterBtn=styled.button`
     background-color:oklab(0.242856 0.00730701 -0.0294515 / 0.6);
@@ -97,7 +98,8 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     padding-left:10px;
     padding-right:10px;
     font-family:sans-serif;
-    
+    border:2px solid #27272a80;
+    border-color:#27272a80;
   `
   export const FilterButtonDiv=styled.div`
     display:flex;
@@ -111,7 +113,4 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
 export const GeneralSection=styled.div`
   display:flex;
   flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  
 `

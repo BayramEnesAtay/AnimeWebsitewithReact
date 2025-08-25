@@ -10,17 +10,22 @@ const pacing= 1;
 export const LeftSection=styled.div`
   display:flex;
   flex-direction:row;
-  column-gap: ${pacing * 3}rem;;
+  column-gap: ${pacing * 3}rem;
+  padding-left:20px;
+  margin-left:130px;
 `
 export const RightSection=styled.div`
   display:flex;
   flex-direction:row; 
   column-gap: ${pacing * 0.5}rem;
+  padding-right:20px;
+  margin-right:130px;
+  margin-left:auto;
 `
 export const Icon_Typography=styled.div`
   display:flex;
   flex-direction:row; 
   column-gap: ${pacing * 0.5}rem;
-  alignItems: center;
+  align-items: center;
   justify-content:center;
 `
