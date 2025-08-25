@@ -90,13 +90,15 @@ const  Card=({animename,url,anumber,index,anime}) =>{
         </PlayIcon>
         <GradientDiv className="gradient" />
         </Box>
+
         <CardContent sx={{transition:"backgroundColor 0.3s boxShadow 0.3s",backgroundColor:"#12121a",borderBottomLeftRadius: "15px", borderBottomRightRadius: "15px",'&:hover':{
           
         } } }  >
           <Typography className="anime-name" sx={{transition:"color 0.3s",padding:0,margin:0,marginBottom:"15px"}}  variant="h6" component="div" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif" color="#FFF" >
             {animename}
-            
-          </Typography>
+            </Typography>T
+        
+          
           {genres?.slice(0,2).map((g)=>{
             return(
               <Genres key={genres.mal_id} className="genres" >{g.name}</Genres>

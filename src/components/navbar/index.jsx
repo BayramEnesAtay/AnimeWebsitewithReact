@@ -17,7 +17,11 @@ const  Navbar=()=> {
   return (
     <Box sx={{ flexGrow: 1 ,position:"sticky",top:"0px",zIndex:2}}>
       <AppBar  sx={{ backgroundColor: "#0a0a0f",border:"1px solid #27272a",borderColor:"#27272a"}} color="secondary" >
+<<<<<<< HEAD
         <Toolbar  disableGutters sx={{}}>
+=======
+        <Toolbar  disableGutters sx={{paddingLeft:"0px",paddingRight:"0px",justifyContent:'space-around'}}>
+>>>>>>> fbf9cda7baed6125c02a0251b60bed15a8e1fdc0
           <LeftSection>
             <Icon_Typography>
               <IconButton
