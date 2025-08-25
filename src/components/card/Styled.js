@@ -69,7 +69,7 @@ export const Episode_Year=styled.div`
   flex-direction:row;
   justify-content:space-between;
   margin-top:15px;
-  margin-bottom:10px;
+  
 `
 export const Episode=styled.span`
   color:#71717A;

@@ -91,10 +91,10 @@ const  Card=({animename,url,anumber,index,anime}) =>{
         <GradientDiv className="gradient" />
         </Box>
 
-        <CardContent sx={{transition:"backgroundColor 0.3s boxShadow 0.3s",backgroundColor:"#12121a",borderBottomLeftRadius: "15px", borderBottomRightRadius: "15px",'&:hover':{
+        <CardContent sx={{transition:"backgroundColor 0.3s boxShadow 0.3s",backgroundColor:"#12121a",'&:hover':{
           
         } } }  >
-          <Typography className="anime-name" sx={{transition:"color 0.3s",padding:0,margin:0,marginBottom:"15px"}}  variant="h6" component="div" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif" color="#FFF" >
+          <Typography className="anime-name" sx={{display:"-webkit-flex",lineHeight:"1.2em",minHeight:"2.4em",WebkitLineClamp:2,WebkitBoxOrient:"vertical",transition:"color 0.3s",padding:0,margin:0}}  variant="h6" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif"  color="#FFF" >
             {animename}
             </Typography>
         
@@ -109,14 +109,19 @@ const  Card=({animename,url,anumber,index,anime}) =>{
           )
           }
           
-          <Episode_Year>
-            <Episode>
-              {anime?.episodes} episodes
-            </Episode>
-              {anime && anime.year&&(
+          
+          {(anime?.episodes || anime?.year)&&(
+            <Episode_Year>
+            {anime?.episodes&&(
+                <Episode>episodes</Episode>
+              )} 
+              {anime?.year&&(
                 <Year>&#x2022;{anime?.year}</Year>
               )}
-          </Episode_Year>
+              </Episode_Year>
+          )}  
+              
+          
           
         </CardContent>
         </CardActionArea>
