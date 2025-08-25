@@ -104,7 +104,11 @@ const  Card=({animename,url,anumber,index,anime}) =>{
               <Genres key={genres.mal_id} className="genres" >{g.name}</Genres>
             )
           })}
-          <BonusGenres>+1</BonusGenres>
+          {genres.length-2 >0 &&(
+           <BonusGenres>+{genres.length-2}</BonusGenres>
+          )
+          }
+          
           <Episode_Year>
             <Episode>
               {anime?.episodes} episodes
