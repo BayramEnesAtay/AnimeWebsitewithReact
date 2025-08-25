@@ -94,7 +94,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
         <CardContent sx={{transition:"backgroundColor 0.3s boxShadow 0.3s",backgroundColor:"#12121a",'&:hover':{
           
         } } }  >
-          <Typography className="anime-name" sx={{display:"-webkit-flex",lineHeight:"1.2em",minHeight:"2.4em",WebkitLineClamp:2,WebkitBoxOrient:"vertical",transition:"color 0.3s",padding:0,margin:0}}  variant="h6" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif"  color="#FFF" >
+          <Typography className="anime-name" sx={{lineHeight:"1.2em",minHeight:"2.4em",transition:"color 0.3s",padding:0,margin:0}}  variant="h6" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif"  color="#FFF" >
             {animename}
             </Typography>
         
