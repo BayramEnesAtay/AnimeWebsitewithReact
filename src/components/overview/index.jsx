@@ -17,7 +17,7 @@ const Overview=()=>{
         <InfoItem>&#128197; {data.season} {data.year}</InfoItem>
       )}
       {data.studios &&(
-        <InfoItem> {data.studios[0].name} Studio</InfoItem>
+        <InfoItem> {data.studios[0]?.name} Studio</InfoItem>
       )}
     </OverviewContent>  
     <MainInfoPanel>

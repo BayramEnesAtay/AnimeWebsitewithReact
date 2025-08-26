@@ -82,9 +82,11 @@ const  Card=({animename,url,anumber,index,anime}) =>{
           alt="anime image"
           style={{ borderTopLeftRadius:"15px", borderTopRightRadius:"15px" }}
         />
-        <Rating>
+        {anime?.score &&(
+          <Rating>
           &#11088;{anime.score}
         </Rating>
+        )}
         <PlayIcon className="play-icon">
           &#9654;
         </PlayIcon>
@@ -113,7 +115,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
           {(anime?.episodes || anime?.year)&&(
             <Episode_Year>
             {anime?.episodes&&(
-                <Episode>episodes</Episode>
+                <Episode>{anime.episodes} episodes</Episode>
               )} 
               {anime?.year&&(
                 <Year>&#x2022;{anime?.year}</Year>

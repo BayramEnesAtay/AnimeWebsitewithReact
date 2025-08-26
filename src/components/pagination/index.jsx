@@ -17,7 +17,7 @@ const PaginationComp=()=>{
     '& .MuiPaginationItem-root': {
       color: 'white',
       borderColor: 'white',
-    }}}  color="secondary" count={10} page={pagecount} showFirstButton showLastButton  onChange={handleChange}/>
+    }}}  color="secondary" count={1152} page={pagecount} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
     </Pagination1>
   );
 }

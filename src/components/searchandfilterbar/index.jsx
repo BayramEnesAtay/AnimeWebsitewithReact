@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useState } from "react";
 import { SectionUpdate ,Topic,Motto, SectionTittle,Section} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
 import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter} from './styled';
@@ -9,17 +10,18 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import HomeDataContext from "../context/HomeDataContext";
 
 const Search_Filterbar=()=>{
   
-
   
-
-  const [status, setStatus] = React.useState('Title A-Z');
+  const [status, setStatus] = useState('Title A-Z');
 
   const handleChange = (event) => {
     setStatus(event.target.value);
   };
+
+  const{setSearchStatus,input,setInput}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -34,6 +36,7 @@ const Search_Filterbar=()=>{
       </Section>
 
       <Search_Filter>
+
         <Search sx={{flex:0.8}}>
           <SearchIconWrapper>
             <SearchIcon />
@@ -42,13 +45,21 @@ const Search_Filterbar=()=>{
             sx={{padding:0,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             placeholder="Search for anime,characters or genres..."
             inputProps={{ 'aria-label': 'search_filter' }}
+            value={input}
+            onChange={(e)=>{
+              setInput(e.target.value);
+              if(input.trim()==="")
+                setSearchStatus(false);
+              else
+                setSearchStatus(true);
+            }}
           />
         </Search>
+
         <Menu_Filter>
         <Box sx={{ flexGrow:1}}>
           <FormControl fullWidth >
             <Select
-              
               value={status}
               onChange={handleChange}
               size="small"
