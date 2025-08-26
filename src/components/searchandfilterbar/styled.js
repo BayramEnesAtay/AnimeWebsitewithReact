@@ -46,7 +46,6 @@ export const Search = muistyled('div')(({ theme }) => ({
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
       width: 'auto',
     },
   }));
@@ -87,19 +86,21 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     margin-left:150px;
     margin-bottom:80px;
     margin-right:150px;
+    padding:0px 0px;
   `
   export const FilterBtn=styled.button`
     background-color:oklab(0.242856 0.00730701 -0.0294515 / 0.6);
     color:#FFFF;
     border:none;
     border-radius:5px;
-    padding-top:5px;
-    padding-bottom:5px;
+    padding-top:2.5px;
+    padding-bottom:2.5px;
     padding-left:10px;
     padding-right:10px;
     font-family:sans-serif;
     border:2px solid #27272a80;
     border-color:#27272a80;
+    flex-grow:1;
   `
   export const FilterButtonDiv=styled.div`
     display:flex;
@@ -113,4 +114,10 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
 export const GeneralSection=styled.div`
   display:flex;
   flex-direction:column;
+`
+export const Menu_Filter=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:5px;
+  flex-grow:0.2;
 `

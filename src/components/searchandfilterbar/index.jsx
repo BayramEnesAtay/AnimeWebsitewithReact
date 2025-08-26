@@ -1,7 +1,7 @@
 import React from "react";
 import { SectionUpdate ,Topic,Motto, SectionTittle,Section} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
-import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection} from './styled';
+import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter} from './styled';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -34,7 +34,7 @@ const Search_Filterbar=()=>{
       </Section>
 
       <Search_Filter>
-        <Search sx={{padding:0,flex:1}}>
+        <Search sx={{flex:0.8}}>
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
@@ -44,14 +44,15 @@ const Search_Filterbar=()=>{
             inputProps={{ 'aria-label': 'search_filter' }}
           />
         </Search>
-        <Box sx={{ padding:0}}>
+        <Menu_Filter>
+        <Box sx={{ flexGrow:1}}>
           <FormControl fullWidth >
             <Select
               
               value={status}
               onChange={handleChange}
               size="small"
-              sx={{ backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",width:200,height:32,fontSize:13,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
+              sx={{ flexGrow:1,backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",fontSize:13,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             >
               
               <MenuItem value={"Title A-Z"}>Title A-Z</MenuItem>
@@ -61,12 +62,12 @@ const Search_Filterbar=()=>{
             </Select>
           </FormControl>
       </Box>
-
       <FilterBtn >
         <FilterButtonDiv >
           <FilterAltIcon fontSize="small"/> Filters
         </FilterButtonDiv>
       </FilterBtn>
+      </Menu_Filter>
       </Search_Filter>
 
     </GeneralSection>

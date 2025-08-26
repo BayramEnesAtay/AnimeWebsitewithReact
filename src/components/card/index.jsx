@@ -46,7 +46,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
   
   return(
   
-    <Muicard sx={{transition:"transform 0.3s ease",maxWidth: 220,padding:0,cursor:"pointer",border:"2px solid #27272a",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden",backgroundColor:"#12121a",'&:hover':{
+    <Muicard sx={{breakInside:"avoid",transition:"transform 0.3s ease",maxWidth: 220,padding:0,cursor:"pointer",border:"2px solid #27272a",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden",backgroundColor:"#12121a",'&:hover':{
       transform:"scale(1.05)" ,
       borderColor:"oklab(0.585342 0.0253079 -0.202452 / 0.5)"
     },
