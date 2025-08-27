@@ -8,6 +8,13 @@ const useMainPage=(input,pagecount,searchstatus)=>{
   const [error,setError]=useState(null);
   const debouncedInput=useDebounce(input,800)
 
+  useEffect(() => {
+    setLoading(true);
+
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   useEffect(()=>{
       setLoading(true);
       setdata([]);//we have reset the data.
