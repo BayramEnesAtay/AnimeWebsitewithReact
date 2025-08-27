@@ -45,7 +45,6 @@ export const Genres=styled.span`
   font-size:10.5px;
   color:rgb(161, 161, 170);
   background-color:rgb(39, 39, 42);
-  margin-right:5px;
   padding:2.5px 7px;
   border-radius:7.5px;
   overflow:hidden;
@@ -118,4 +117,10 @@ export const GradientDiv=styled.div`
   height:100%;
   width:108%;
   background-image: linear-gradient(to top,rgba(0,0,0,0.6),transparent);
+`
+export const GenresSection=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:5px;
+  margin-top:15px;
 `

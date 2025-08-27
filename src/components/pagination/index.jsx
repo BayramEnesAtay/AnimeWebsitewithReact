@@ -4,20 +4,23 @@ import { Pagination1} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
 import Pagination from '@mui/material/Pagination';
 import { PaginationItem } from "@mui/material";
+import useDebounce from "../../hooks/useDebounce";
+
 
 const PaginationComp=()=>{
   const {setpagecount,pagecount}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
     setpagecount(newPage);
-  };
 
+  };
+  const debouncedValue=useDebounce(pagecount,600);
   return(
     <Pagination1>
       <Pagination   sx={{
     '& .MuiPaginationItem-root': {
       color: 'white',
       borderColor: 'white',
-    }}}  color="secondary" count={1152} page={pagecount} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
+    }}}  color="secondary" count={1152} page={debouncedValue} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
     </Pagination1>
   );
 }

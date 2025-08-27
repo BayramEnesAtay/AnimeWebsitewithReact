@@ -10,5 +10,5 @@ export const Content=styled.div`
     row-gap:20px;
     margin-left:150px;
     margin-right:150px;
-    
+    align-items:start;
   `

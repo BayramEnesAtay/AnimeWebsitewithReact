@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres,Episode_Year,Episode,Year,Rating,PlayIcon,GradientDiv} from "./Styled";
+import {AnimeCard,AnimeImg,AnimeName,Info,Tooltip,Genres,BonusGenres,Episode_Year,Episode,Year,Rating,PlayIcon,GradientDiv,GenresSection} from "./Styled";
 import DetailPage from "../detailpage";
 import { useNavigate } from "react-router-dom";
 import { TooltipReducer } from "../reducer/TooltipReducer";
@@ -46,7 +46,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
   
   return(
   
-    <Muicard sx={{breakInside:"avoid",transition:"transform 0.3s ease",maxWidth: 220,padding:0,cursor:"pointer",border:"2px solid #27272a",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden",backgroundColor:"#12121a",'&:hover':{
+    <Muicard sx={{transition:"transform 0.3s ease",maxWidth: 220,padding:0,cursor:"pointer",border:"2px solid #27272a",borderRadius:"15px",borderColor:" #27272a",overflow:"hidden",backgroundColor:"#12121a",'&:hover':{
       transform:"scale(1.05)" ,
       borderColor:"oklab(0.585342 0.0253079 -0.202452 / 0.5)"
     },
@@ -79,7 +79,7 @@ const  Card=({animename,url,anumber,index,anime}) =>{
           component="img"
           height="260"
           image={url}
-          alt="anime image"
+          alt="anime_image"
           style={{ borderTopLeftRadius:"15px", borderTopRightRadius:"15px" }}
         />
         {anime?.score &&(
@@ -96,12 +96,13 @@ const  Card=({animename,url,anumber,index,anime}) =>{
         <CardContent sx={{transition:"backgroundColor 0.3s boxShadow 0.3s",backgroundColor:"#12121a",'&:hover':{
           
         } } }  >
-          <Typography className="anime-name" sx={{lineHeight:"1.2em",minHeight:"2.4em",transition:"color 0.3s",padding:0,margin:0}}  variant="h6" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif"  color="#FFF" >
+          <Typography className="anime-name" sx={{display:"-webkit-box",WebkitBoxOrient:"vertical",WebkitLineClamp:"2",transition:"color 0.3s",padding:0,margin:0}}  variant="h6" overflow="hidden" textOverflow="ellipsis" fontSize="14px" fontFamily="sans-serif"  color="#FFF" >
             {animename}
             </Typography>
         
-          
-          {genres?.slice(0,2).map((g)=>{
+          {genres&&(
+            <GenresSection>
+              {genres?.slice(0,2).map((g)=>{
             return(
               <Genres key={genres.mal_id} className="genres" >{g.name}</Genres>
             )
@@ -110,6 +111,9 @@ const  Card=({animename,url,anumber,index,anime}) =>{
            <BonusGenres>+{genres.length-2}</BonusGenres>
           )
           }
+            </GenresSection>
+          )}
+          
           
           
           {(anime?.episodes || anime?.year)&&(
