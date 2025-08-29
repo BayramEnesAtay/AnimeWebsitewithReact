@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Section=styled.div`
   height:50vw;
-  width:100vw;
   position:relative;
+  margin-left:150px;
+  margin-right:150px;
 `
 export const Img=styled.img`
   width:100%;
