@@ -8,7 +8,7 @@ export const Content=styled.div`
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     margin-top: 0px;
     row-gap:20px;
-    margin-left:150px;
+    margin-left:150px;  
     margin-right:150px;
     align-items:start;
   `

@@ -33,7 +33,9 @@ const useMainPage=(input,pagecount,searchstatus)=>{
           setError(err);
         })
         .finally(()=>{
-          setLoading(false);
+          setTimeout(()=>{
+            setLoading(false);
+          },3000)
         });
         
   },[pagecount,debouncedInput,searchstatus]);

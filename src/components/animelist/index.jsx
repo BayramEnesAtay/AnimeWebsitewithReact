@@ -3,12 +3,14 @@ import Card from '../card';
 import {Content} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
 import MainPageSkeleton from "../skeleton/MainPageSkeleton";
+import NotFound from "../notfoundpage/NotFoundAnime";
 
 
 const AnimeList=()=>{
   const {data,loading}=useContext(HomeDataContext);
 
 return(
+  <>
     <Content>
       {loading &&(
         Array.from({length:10},(_,index)=><MainPageSkeleton key={index}/>)
@@ -19,6 +21,10 @@ return(
       )
     })}
     </Content>
+    {!loading && data?.length===0 && (
+      <NotFound />
+    )}
+    </>
   
 );
 }
