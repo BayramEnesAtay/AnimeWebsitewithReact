@@ -8,20 +8,22 @@ import useDebounce from "../../hooks/useDebounce";
 
 
 const PaginationComp=()=>{
-  const {setpagecount,pagecount}=useContext(HomeDataContext);
+  const {setpagecount,pagecount,data,loading}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
     setpagecount(newPage);
 
   };
   const debouncedValue=useDebounce(pagecount,600);
   return(
-    <Pagination1>
-      <Pagination   sx={{
+  <Pagination1>
+    {!(!loading && data?.length===0) &&(
+        <Pagination   sx={{
     '& .MuiPaginationItem-root': {
       color: 'white',
       borderColor: 'white',
     }}}  color="secondary" count={1152} page={debouncedValue} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
-    </Pagination1>
-  );
+    )} 
+  </Pagination1>
+  )
 }
 export default PaginationComp;
