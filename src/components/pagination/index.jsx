@@ -8,9 +8,10 @@ import useDebounce from "../../hooks/useDebounce";
 
 
 const PaginationComp=()=>{
-  const {setpagecount,pagecount,data,loading}=useContext(HomeDataContext);
+  const {setpagecount,pagecount,data,loading,setSortType}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
     setpagecount(newPage);
+    setSortType("");
 
   };
   const debouncedValue=useDebounce(pagecount,600);

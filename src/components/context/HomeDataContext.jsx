@@ -9,9 +9,10 @@ export const HomeDataProvider=({children})=>{
   const [searchstatus,setSearchStatus]=useState(false);
   const [input,setInput]=useState("");
   const {data,loading}=useMainPage(input,pagecount,searchstatus);
+  const [sortType,setSortType]=useState("");
 
   return(
-    <HomeDataContext.Provider value={{data,loading,setpagecount,pagecount,searchstatus,setSearchStatus,input,setInput}}>
+    <HomeDataContext.Provider value={{setSortType,sortType,data,loading,setpagecount,pagecount,searchstatus,setSearchStatus,input,setInput}}>
       {children}
     </HomeDataContext.Provider>
   ); 

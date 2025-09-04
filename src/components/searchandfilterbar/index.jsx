@@ -21,7 +21,7 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setSearchStatus,input,setInput}=useContext(HomeDataContext);
+  const{setSearchStatus,input,setInput,setSortType}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -66,7 +66,7 @@ const Search_Filterbar=()=>{
               sx={{ flexGrow:1,backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",fontSize:13,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             >
               
-              <MenuItem value={"Title A-Z"}>Title A-Z</MenuItem>
+              <MenuItem onClick={()=>setSortType("Title")} value={"Title A-Z"}>Title A-Z</MenuItem>
               <MenuItem value={"Rating(High to Low)"}>Rating(High to low)</MenuItem>
               <MenuItem value={"Year(New to old)"}>Year(New to old)</MenuItem>
               <MenuItem value={"Episodes(Most to least)"}>Episodes(Most to least)</MenuItem>
