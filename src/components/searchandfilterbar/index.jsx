@@ -69,7 +69,7 @@ const Search_Filterbar=()=>{
               <MenuItem onClick={()=>setSortType("Title")} value={"Title A-Z"}>Title A-Z</MenuItem>
               <MenuItem onClick={()=>setSortType("Rating")} value={"Rating(High to Low)"}>Rating(High to low)</MenuItem>
               <MenuItem onClick={()=>setSortType("Year")} value={"Year(New to old)"}>Year(New to old)</MenuItem>
-              <MenuItem value={"Episodes(Most to least)"}>Episodes(Most to least)</MenuItem>
+              <MenuItem onClick={()=>setSortType("Episodes")} value={"Episodes(Most to least)"}>Episodes(Most to least)</MenuItem>
             </Select>
           </FormControl>
       </Box>
