@@ -9,9 +9,21 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 const AnimeList=()=>{
   const {data,loading,sortType}=useContext(HomeDataContext);
   let sortedData;
-  sortedData=data.toSorted((a,b)=>
-    a.title.localeCompare(b.title)
-);
+  switch(sortType){
+    case "Title":{
+      sortedData=data.toSorted((a,b)=>
+      a.title.localeCompare(b.title)
+    );
+    }break;
+    case "Rating":{
+      sortedData=data.toSorted((a,b)=>{
+        return(b.score-a.score);
+      }
+      
+    );
+    }break;
+  }
+
 return(
   <>
     <Content>
@@ -20,12 +32,12 @@ return(
       )}
     {!loading && !sortType &&data?.map((anime,index)=>{
       return(
-      <Card key={anime.mal_id+index} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
       )
     })}
     {!loading && sortType && sortedData?.map((anime,index)=>{
         return(
-      <Card key={anime.mal_id+index} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
     )})
     }
     
