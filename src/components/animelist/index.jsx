@@ -22,6 +22,11 @@ const AnimeList=()=>{
       
     );
     }break;
+    case "Year":{
+      sortedData=data.toSorted((a,b)=>{
+        return(b.year-a.year);
+      })
+    }break;
   }
 
 return(
