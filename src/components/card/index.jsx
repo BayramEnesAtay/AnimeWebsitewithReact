@@ -11,7 +11,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import { Gradient } from "@mui/icons-material";
 import Box from '@mui/material/Box';
 
-const  Card=({animename,url,anumber,index,anime}) =>{
+const  Card=({animename,url,anime}) =>{
 
   
   const [genres,setGenres]=useState([]);
@@ -24,23 +24,8 @@ const  Card=({animename,url,anumber,index,anime}) =>{
     }
   })
 
-  //const [showtooltip,dispatch]=useReducer(TooltipReducer,Array(anumber).fill(false));
+  
   const navigate=useNavigate();
-
-  /*const handlehover=(i)=>{
-    dispatch({
-      type:"onhover",
-      payload:i
-    })
-  }
-
-  const handleoffhover=(i)=>{
-    dispatch({
-      type:"ofhover",
-      payload:i
-    })
-  }*/
-
   const onCardClik=()=>navigate(`/anime/${anime.mal_id}`);
   
   
