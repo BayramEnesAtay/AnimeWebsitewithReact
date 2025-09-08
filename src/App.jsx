@@ -8,6 +8,7 @@ import Overview from "./components/overview/index.jsx";
 import React from "react";
 import GlobalStyle from "../globalStyles.js";
 import { DetailDataProvider } from "./components/context/DetailDataContext.jsx";
+import { HomeDataProvider } from "./components/context/HomeDataContext.jsx";
 
 
 const App=()=>{
@@ -15,7 +16,7 @@ const App=()=>{
     <BrowserRouter> 
     <GlobalStyle />
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomeDataProvider><HomePage /></HomeDataProvider>} />
         <Route path="/anime/:id"  element={<DetailDataProvider><DetailPage /></DetailDataProvider>} >
           <Route index element={<Overview />} />
           <Route path="story" element={<Story />} />

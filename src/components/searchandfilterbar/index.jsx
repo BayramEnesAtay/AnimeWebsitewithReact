@@ -21,15 +21,25 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setSearchStatus,input,setInput,setSortType,GenreData}=useContext(HomeDataContext);
+  const{setSearchStatus,input,setInput,setSortType,GenreData,NavbarClick}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
       <Section>
+        {NavbarClick==="Browse" &&
         <SectionTittle>
           <Topic>Browse Collection</Topic>
           <Motto>Find your next favourite anime from our collection</Motto>
         </SectionTittle>
+        }
+
+        {NavbarClick==="Top Rated" &&
+        <SectionTittle>
+          <Topic>Highest Rated Anime</Topic>
+          <Motto>The best anime series and movies with ratings of 8.0 and above</Motto>
+        </SectionTittle>
+        }
+        
         <SectionUpdate>
           Updated daily
         </SectionUpdate>
@@ -43,7 +53,7 @@ const Search_Filterbar=()=>{
           </SearchIconWrapper>
           <StyledInputBase
             sx={{padding:0,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
-            placeholder="Search for anime,characters or genres..."
+            placeholder="Search for anime..."
             inputProps={{ 'aria-label': 'search_filter' }}
             value={input}
             onChange={(e)=>{

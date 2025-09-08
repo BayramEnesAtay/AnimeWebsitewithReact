@@ -8,7 +8,7 @@ export const Container1=styled.div`
   
 `
 export const HeroSection=styled.h1`
-  color:#ffff;
+  color:#9810FA;
   padding-top:0px;
   padding-bottom:0px;
   margin-top:0px;

@@ -10,9 +10,10 @@ import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { LeftSection,RightSection,Icon_Typography } from './Styled';
+import HomeDataContext from '../context/HomeDataContext';
 
 const  Navbar=()=> {
-
+  const {setNavbarClick}=React.useContext(HomeDataContext);
 
   return (
     <Box sx={{ flexGrow: 1 ,position:"sticky",top:"0px",zIndex:2}}>
@@ -31,16 +32,21 @@ const  Navbar=()=> {
                 MyAnimeList
               </Typography>
             </Icon_Typography>
-          <Button color="inherit" size="small" sx={{
+            <Button onClick={()=>setNavbarClick("Browse")} color="inherit" size="small" sx={{
+             textTransform: "none", color: "#71717a",padding:0, transition: "color 0.1s", "&:hover": {
+              color: "#ffff"
+            }
+          }}>Browse</Button>
+          <Button onClick={()=>setNavbarClick("Top Rated")} color="inherit" size="small" sx={{
              textTransform: "none", color: "#71717a",padding:0, transition: "color 0.1s", "&:hover": {
               color: "#ffff"
             }}} >Top Rated</Button>
-          <Button color="inherit" size="small" sx={{
+          <Button onClick={()=>setNavbarClick("New Releases")} color="inherit" size="small" sx={{
              textTransform: "none", color: "#71717a",padding:0, transition: "color 0.1s", "&:hover": {
               color: "#ffff"
             }
           }} >New Releases</Button>
-          <Button color="inherit" size="small" sx={{
+          <Button onClick={()=>setNavbarClick("Genres")} color="inherit" size="small" sx={{
              textTransform: "none", color: "#71717a",padding:0, transition: "color 0.1s", "&:hover": {
               color: "#ffff"
             }
