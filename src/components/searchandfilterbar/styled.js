@@ -159,14 +159,14 @@ export const Genres=styled.span`
   border-radius:7.5px;
   overflow:hidden;
   white-space:nowrap;
-  border:1px solid #27272a80;
-  transition:border 0.2s ;
+  border:2px solid #27272a80;
+  transition:border-color 0.2s ;
   &:hover{
-    border:2px solid oklab(0.585342 0.0253079 -0.202452 / 0.5);
-    transition:border 0.2s , border-color:0.2s;
+    border-color: oklab(0.585342 0.0253079 -0.202452 / 0.5);
+    transition:border-color 0.2s
   }
   margin-top:5px;
-  flex-shrink:0
+  flex-shrink:0;
   margin-right:3px;
   cursor:pointer;
 `
