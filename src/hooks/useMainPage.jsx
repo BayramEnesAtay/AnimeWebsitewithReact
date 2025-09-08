@@ -7,6 +7,8 @@ const useMainPage=(input,pagecount,searchstatus)=>{
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
   const debouncedInput=useDebounce(input,800)
+  const [GenreData,setGenreData]=useState([]);
+  
 
   useEffect(() => {
     setLoading(true);
@@ -40,6 +42,14 @@ const useMainPage=(input,pagecount,searchstatus)=>{
         
   },[pagecount,debouncedInput,searchstatus]);
 
-  return {data,error,loading};
+  useEffect(()=>{
+    fetch("https://api.jikan.moe/v4/genres/anime")
+      .then(Response=>Response.json())
+      .then(json=>{
+        setGenreData(json.data);
+      })
+  },[]);
+
+  return {data,error,loading,GenreData};
 }
 export default useMainPage;

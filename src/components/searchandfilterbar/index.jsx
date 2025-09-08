@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { SectionUpdate ,Topic,Motto, SectionTittle,Section} from "./styled";
+import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
-import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter} from './styled';
+import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter,GenreFilter} from './styled';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -14,14 +14,14 @@ import HomeDataContext from "../context/HomeDataContext";
 
 const Search_Filterbar=()=>{
   
-  
+  const [openFilters,setOpenFilters]=useState(false);
   const [status, setStatus] = useState('Title A-Z');
 
   const handleChange = (event) => {
     setStatus(event.target.value);
   };
 
-  const{setSearchStatus,input,setInput,setSortType}=useContext(HomeDataContext);
+  const{setSearchStatus,input,setInput,setSortType,GenreData}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -73,14 +73,30 @@ const Search_Filterbar=()=>{
             </Select>
           </FormControl>
       </Box>
-      <FilterBtn >
+      <FilterBtn onClick={()=>setOpenFilters(!openFilters)} >
         <FilterButtonDiv >
           <FilterAltIcon fontSize="small"/> Filters
         </FilterButtonDiv>
       </FilterBtn>
+     
       </Menu_Filter>
       </Search_Filter>
-
+        {openFilters && 
+          <GenreFilter>
+            <InnerGenreFilter >
+              <Filter>
+                 <FilterAltIcon fontSize="small"/> Genre Filters
+              </Filter>
+              <GenreButtons>
+                {GenreData&& GenreData.map((Genre,index)=>{
+                  return(
+                    <Genres key={index}>{Genre.name}</Genres>
+                  )
+                })}
+              </GenreButtons>
+            </InnerGenreFilter>
+          </GenreFilter>
+        }
     </GeneralSection>
   );
 }

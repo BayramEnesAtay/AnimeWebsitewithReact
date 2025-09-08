@@ -84,7 +84,7 @@ export const StyledInputBase = muistyled(InputBase)(({ theme }) => ({
     align-items:center;
     column-gap:10px;
     margin-left:150px;
-    margin-bottom:80px;
+    margin-bottom:20px;
     margin-right:150px;
     padding:0px 0px;
   `
@@ -120,4 +120,53 @@ export const Menu_Filter=styled.div`
   flex-direction:row;
   column-gap:5px;
   flex-grow:0.2;
+`
+export const GenreFilter=styled.div`
+  border:2px solid #27272a80;
+  background-color:oklab(0.242856 0.00730701 -0.0294515 / 0.6);
+  margin-bottom:80px;
+  margin-right:150px;
+  margin-left:150px;
+  border-radius:10px;
+`
+export const Filter=styled.div`
+  display:flex;
+  flex-direction:row;
+  font-size:14px;
+  color:#fff;
+  column-gap:5px;
+  font-family:sans-serif;
+`
+export const InnerGenreFilter=styled.div`
+  display:flex;
+  flex-direction:column;
+  margin:25px;
+`
+export const GenreButtons=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:5px;
+  font-family:sans-serif;
+  overflow:hidden;
+  flex-wrap:wrap;
+  margin-top:19px;
+`
+export const Genres=styled.span`
+  font-size:12px;
+  color:#fff;
+  background-color:rgb(39, 39, 42);
+  padding:2.5px 7px;
+  border-radius:7.5px;
+  overflow:hidden;
+  white-space:nowrap;
+  border:1px solid #27272a80;
+  transition:border 0.2s ;
+  &:hover{
+    border:2px solid oklab(0.585342 0.0253079 -0.202452 / 0.5);
+    transition:border 0.2s , border-color:0.2s;
+  }
+  margin-top:5px;
+  flex-shrink:0
+  margin-right:3px;
+  cursor:pointer;
 `
