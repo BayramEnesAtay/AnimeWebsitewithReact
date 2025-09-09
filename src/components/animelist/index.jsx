@@ -7,7 +7,7 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 
 
 const AnimeList=()=>{
-  const {data,loading,sortType}=useContext(HomeDataContext);
+  const {data,loading,sortType,topData,NavbarClick}=useContext(HomeDataContext);
   let sortedData;
   switch(sortType){
     case "Title":{
@@ -40,7 +40,12 @@ return(
       {loading &&(
         Array.from({length:10},(_,index)=><MainPageSkeleton key={index}/>)
       )}
-    {!loading && !sortType &&data?.map((anime,index)=>{
+    {!loading && !sortType&& NavbarClick==="Browse" &&data?.map((anime,index)=>{
+      return(
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      )
+    })}
+    {!loading && !sortType && NavbarClick==="Top Rated" &&topData?.map((anime,index)=>{
       return(
       <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
       )
