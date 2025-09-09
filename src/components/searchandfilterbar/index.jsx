@@ -39,6 +39,13 @@ const Search_Filterbar=()=>{
           <Motto>The best anime series and movies with ratings of 8.0 and above</Motto>
         </SectionTittle>
         }
+
+        {NavbarClick==="New Releases" &&
+        <SectionTittle>
+          <Topic>Latest Anime Releases</Topic>
+          <Motto>The newest anime series and movies from 2020 onwards</Motto>
+        </SectionTittle>
+        }
         
         <SectionUpdate>
           Updated daily

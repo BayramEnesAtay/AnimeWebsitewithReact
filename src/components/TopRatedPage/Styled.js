@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HomeDataContext from "../context/HomeDataContext";
 
 export const Container1=styled.div`
   display: flex;
@@ -9,7 +10,7 @@ export const Container1=styled.div`
   align-items:center;
 `
 export const HeroSection=styled.h1`
-  color:#F9B500;
+  color:${(props)=>props.color};
   padding-top:0px;
   padding-bottom:0px;
   margin-top:0px;
@@ -63,14 +64,14 @@ export const Star=styled.span`
   font-size:16px;
 `
 export const Award=styled.span`
-  color:#8538BB;
+  color:${(props)=>props.color};
   font-size:16px;
 `
 export const AwardIcon=styled.div`
   color:#fff;
   display:flex;
   margin-bottom:5px;
-  background-color:#FB8100;
+  background-color:${(props)=>props.bg};
   height:40px;
   width:40px;
   border-radius:20px;

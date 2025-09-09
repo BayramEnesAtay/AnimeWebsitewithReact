@@ -4,8 +4,9 @@ export const Container1=styled.div`
   display: flex;
   flex-direction:column;
   row-gap:0px;
-  text-align:center
-  
+  text-align:center;
+  justify-content:center;
+  align-items:center;
 `
 export const HeroSection=styled.h1`
   color:#9810FA;
@@ -34,4 +35,14 @@ export const Widget=styled.div`
   flex-direction:column;
   column-gap:5px;
   margin-top:100px;
+`
+export const Box=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:3px;
+  justify-content:center;
+  align-items:center;
+  color:#71717A;
+  font-size:12px; 
+  font-family:sans-serif;
 `
