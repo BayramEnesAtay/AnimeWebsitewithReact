@@ -170,3 +170,20 @@ export const Genres=styled.span`
   margin-right:3px;
   cursor:pointer;
 `
+export const LineSection=styled.div`
+  display:flex;
+  flex-direction:column;
+  row-gap:10px;
+  margin-left:150px;
+  margin-right:150px;
+  margin-bottom:30px;
+`
+export const Line=styled.div`
+  height:2px;
+  background-color:#19191C;
+  display:flex;
+`
+export const Paragrafh=styled.span`
+  color:#71717A;
+  font-size:14px;
+`

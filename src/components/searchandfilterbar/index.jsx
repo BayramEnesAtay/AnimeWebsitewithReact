@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useState } from "react";
 import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
-import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter,GenreFilter} from './styled';
+import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter,GenreFilter,LineSection,Line,Paragrafh} from './styled';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -51,7 +51,7 @@ const Search_Filterbar=()=>{
           Updated daily
         </SectionUpdate>
       </Section>
-
+      {NavbarClick==="Browse" &&
       <Search_Filter>
 
         <Search sx={{flex:0.8}}>
@@ -98,7 +98,8 @@ const Search_Filterbar=()=>{
      
       </Menu_Filter>
       </Search_Filter>
-        {openFilters && 
+      } 
+        {openFilters && NavbarClick==="Browse" &&
           <GenreFilter>
             <InnerGenreFilter >
               <Filter>
@@ -114,6 +115,12 @@ const Search_Filterbar=()=>{
             </InnerGenreFilter>
           </GenreFilter>
         }
+      {NavbarClick==="Top Rated" && 
+        <LineSection>
+          <Paragrafh><strong>25</strong> anime found</Paragrafh>
+          <Line />
+        </LineSection>
+      }
     </GeneralSection>
   );
 }
