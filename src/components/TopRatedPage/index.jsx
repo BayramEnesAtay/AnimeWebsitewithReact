@@ -8,7 +8,7 @@ const TopRatedPage=()=>{
     <Widget>
       <Container1>
         <AwardIcon bg="#FB8100">&#127894;</AwardIcon>
-        <HeroSection color="#F9B500">Top Rated Anime</HeroSection>
+        <HeroSection color="#F9B500">Top Rated Animes</HeroSection>
         <HeroParagrafh>Discover the highest-rated anime series and movies , as rated by our <br/> community of anime enthusiasts</HeroParagrafh>
       </Container1>
       <Features>

@@ -9,26 +9,32 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 const AnimeList=()=>{
   const {data,loading,sortType,topData,NavbarClick,topYear}=useContext(HomeDataContext);
   let sortedData;
+  let reservedata;
+
+  if(NavbarClick==="Browse")
+    reservedata=data;
+  else if(NavbarClick==="New Releases")
+    reservedata=topYear;
   switch(sortType){
     case "Title":{
-      sortedData=data.toSorted((a,b)=>
+      sortedData=reservedata.toSorted((a,b)=>
       a.title.localeCompare(b.title)
     );
     }break;
     case "Rating":{
-      sortedData=data.toSorted((a,b)=>{
+      sortedData=reservedata.toSorted((a,b)=>{
         return(b.score-a.score);
       }
       
     );
     }break;
     case "Year":{
-      sortedData=data.toSorted((a,b)=>{
+      sortedData=reservedata.toSorted((a,b)=>{
         return(b.year-a.year);
       })
     }break;
     case "Episodes":{
-      sortedData=data.toSorted((a,b)=>{
+      sortedData=reservedata.toSorted((a,b)=>{
         return(b.episodes-a.episodes);
       })
     }break;

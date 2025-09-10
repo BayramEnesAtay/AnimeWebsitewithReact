@@ -35,7 +35,7 @@ const Search_Filterbar=()=>{
 
         {NavbarClick==="Top Rated" &&
         <SectionTittle>
-          <Topic>Highest Rated Anime</Topic>
+          <Topic>Highest Rated Animes</Topic>
           <Motto>The best anime series and movies.</Motto>
         </SectionTittle>
         }
