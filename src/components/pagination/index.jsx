@@ -8,21 +8,34 @@ import useDebounce from "../../hooks/useDebounce";
 
 
 const PaginationComp=()=>{
-  const {setpagecount,pagecount,data,loading,setSortType}=useContext(HomeDataContext);
+  const {setpagecount,pagecount,data,loading,setSortType,page,NavbarClick,newReleasepage,setnewReleasepage}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
-    setpagecount(newPage);
-    setSortType("");
+    if(NavbarClick==="Browse")
+      setpagecount(newPage);
+    else if(NavbarClick==="New Releases")
+      setnewReleasepage(newPage);
 
+    setSortType("");
   };
-  const debouncedValue=useDebounce(pagecount,600);
+  const pageForDebounce = NavbarClick === "New Releases" ? newReleasepage : pagecount;
+
+  let pagenumber=page.browse;
+  if(NavbarClick==="New Releases")
+  {
+    pagenumber=page.newRelease;
+    
+  }
+  console.log(pagenumber);
+  const debouncedValue=useDebounce(pageForDebounce,600);
+  
   return(
   <Pagination1>
     {!(!loading && data?.length===0) &&(
         <Pagination   sx={{
     '& .MuiPaginationItem-root': {
       color: 'white',
-      borderColor: 'white',
-    }}}  color="secondary" count={1152} page={debouncedValue} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
+      borderColor: 'white',//the debounced value becomes a null
+    }}}  color="secondary" count={pagenumber} page={debouncedValue} siblingCount={1} showFirstButton  showLastButton  onChange={handleChange}/>
     )} 
   </Pagination1>
   )

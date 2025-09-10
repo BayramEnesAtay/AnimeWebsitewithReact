@@ -7,7 +7,7 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 
 
 const AnimeList=()=>{
-  const {data,loading,sortType,topData,NavbarClick}=useContext(HomeDataContext);
+  const {data,loading,sortType,topData,NavbarClick,topYear}=useContext(HomeDataContext);
   let sortedData;
   switch(sortType){
     case "Title":{
@@ -37,27 +37,39 @@ const AnimeList=()=>{
 return(
   <>
     <Content>
-      {loading &&(
-        Array.from({length:10},(_,index)=><MainPageSkeleton key={index}/>)
-      )}
+    {loading &&(
+      Array.from({length:10},(_,index)=><MainPageSkeleton key={index}/>)
+    )}
+
     {!loading && !sortType&& NavbarClick==="Browse" &&data?.map((anime,index)=>{
       return(
-      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url}  index={index} anime={anime}/>
       )
     })}
+
     {!loading && !sortType && NavbarClick==="Top Rated" &&topData?.map((anime,index)=>{
       return(
-      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} index={index} anime={anime}/>
       )
     })}
+
+    {!loading && !sortType && NavbarClick==="New Releases" &&topYear?.map((anime,index)=>{
+      return(
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} index={index} anime={anime}/>
+      )
+    })}
+
     {!loading && sortType && sortedData?.map((anime,index)=>{
         return(
-      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} anumber={data.length} index={index} anime={anime}/>
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} index={index} anime={anime}/>
     )})
     }
     
     </Content>
-    {!loading && data?.length===0 && (
+    {(!loading && NavbarClick==="Browse" && data?.length===0) && (
+      <NotFound />
+    )}
+    {(!loading && NavbarClick==="New Releases" && topYear?.length===0) && (
       <NotFound />
     )}
     </>

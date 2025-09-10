@@ -21,7 +21,7 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setSearchStatus,input,setInput,setSortType,GenreData,NavbarClick}=useContext(HomeDataContext);
+  const{setSearchStatus,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -36,7 +36,7 @@ const Search_Filterbar=()=>{
         {NavbarClick==="Top Rated" &&
         <SectionTittle>
           <Topic>Highest Rated Anime</Topic>
-          <Motto>The best anime series and movies with ratings of 8.0 and above</Motto>
+          <Motto>The best anime series and movies.</Motto>
         </SectionTittle>
         }
 
@@ -51,7 +51,7 @@ const Search_Filterbar=()=>{
           Updated daily
         </SectionUpdate>
       </Section>
-      {NavbarClick==="Browse" &&
+      {(NavbarClick==="Browse" || NavbarClick==="New Releases")&&
       <Search_Filter>
 
         <Search sx={{flex:0.8}}>
@@ -62,13 +62,23 @@ const Search_Filterbar=()=>{
             sx={{padding:0,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             placeholder="Search for anime..."
             inputProps={{ 'aria-label': 'search_filter' }}
-            value={input}
+            value={NavbarClick==="Browse" ? input:input2}
             onChange={(e)=>{
-              setInput(e.target.value);
-              if(input.trim()==="")
-                setSearchStatus(false);
-              else
-                setSearchStatus(true);
+              {NavbarClick==="Browse" &&
+                setInput(e.target.value);
+                if(e.target.value.trim()==="")
+                  setSearchStatus(false);
+                else
+                  setSearchStatus(true);
+              }
+              {NavbarClick==="New Releases" &&
+                setInput2(e.target.value);
+                if(e.target.value.trim()==="")
+                  setSearchStatus(false);
+                else
+                  setSearchStatus(true);
+              }
+            
             }}
           />
         </Search>
@@ -90,12 +100,13 @@ const Search_Filterbar=()=>{
             </Select>
           </FormControl>
       </Box>
-      <FilterBtn onClick={()=>setOpenFilters(!openFilters)} >
-        <FilterButtonDiv >
-          <FilterAltIcon fontSize="small"/> Filters
-        </FilterButtonDiv>
-      </FilterBtn>
-     
+      {NavbarClick==="Browse" &&
+        <FilterBtn onClick={()=>setOpenFilters(!openFilters)} >
+          <FilterButtonDiv >
+            <FilterAltIcon fontSize="small"/> Filters
+          </FilterButtonDiv>
+        </FilterBtn>
+      }
       </Menu_Filter>
       </Search_Filter>
       } 

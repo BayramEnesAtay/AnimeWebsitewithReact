@@ -29,7 +29,7 @@ const HomePage=()=>{
     }
     <Search_Filterbar/>
     <AnimeList />
-    {NavbarClick==="Browse" && 
+    {(NavbarClick==="Browse" || NavbarClick==="New Releases") &&
       <PagenationComp />
     }
     <Footer/>
