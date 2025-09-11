@@ -6,16 +6,19 @@ const HomeDataContext=createContext();
 
 export const HomeDataProvider=({children})=>{
   const [pagecount,setpagecount]=useState(1);
+  const [browseSearchCount,setbrowseSearchCount]=useState(1);//this is the search page counter.
+  const [releaseSearchCount,setreleaseSearchCount]=useState(1);
   const [newReleasepage,setnewReleasepage]=useState(1);
-  const [searchstatus,setSearchStatus]=useState(false);
+  const [browseSearch,setbrowseSearch]=useState(false);//these are the states for search case.
+  const [releaseSearch,setreleaseSearch]=useState(false);
   const [input,setInput]=useState("");
   const [input2,setInput2]=useState("");
   const [sortType,setSortType]=useState("");
   const [NavbarClick,setNavbarClick]=useState("Browse");
-  const {data,loading,GenreData,topData,topYear,page}=useMainPage(NavbarClick,input,pagecount,searchstatus,newReleasepage,input2);
+  const {data,loading,GenreData,topData,topYear,page}=useMainPage(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount);
 
   return(
-    <HomeDataContext.Provider value={{setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,searchstatus,setSearchStatus,input,setInput}}>
+    <HomeDataContext.Provider value={{setreleaseSearchCount,releaseSearchCount,setbrowseSearchCount,browseSearchCount,setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,browseSearch,setbrowseSearch,input,setInput,releaseSearch,setreleaseSearch}}>
       {children}
     </HomeDataContext.Provider>
   ); 

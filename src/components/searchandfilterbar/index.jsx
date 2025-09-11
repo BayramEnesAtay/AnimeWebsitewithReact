@@ -21,7 +21,7 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setSearchStatus,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2}=useContext(HomeDataContext);
+  const{setbrowseSearch,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -67,16 +67,20 @@ const Search_Filterbar=()=>{
               {NavbarClick==="Browse" &&
                 setInput(e.target.value);
                 if(e.target.value.trim()==="")
-                  setSearchStatus(false);
+                  setbrowseSearch(false);
+                else if(NavbarClick==="New Releases")
+                  setbrowseSearch(false);
                 else
-                  setSearchStatus(true);
+                  setbrowseSearch(true);
               }
               {NavbarClick==="New Releases" &&
                 setInput2(e.target.value);
                 if(e.target.value.trim()==="")
-                  setSearchStatus(false);
+                  setreleaseSearch(false);
+                else if(NavbarClick==="Browse")
+                  setreleaseSearch(false);
                 else
-                  setSearchStatus(true);
+                  setreleaseSearch(true);
               }
             
             }}

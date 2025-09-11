@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import HomeDataContext from "../components/context/HomeDataContext";
 import useDebounce from "./useDebounce";
 
-const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input2)=>{
+const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount)=>{
   const [data,setdata]=useState([]);
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
@@ -12,10 +12,12 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
   const [topData,settopData]=useState([]);
   const [topYear,settopYear]=useState([]);
 
-  const page={
+  const [page,setpage]=useState({
     browse:1157,
-    newRelease:280
-  };
+    newRelease:280,
+    search1:1,
+    search2:1//search1 and search2 are foru pagination total page.
+  });
 
   useEffect(() => {
     setLoading(true);
@@ -30,8 +32,8 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
       setLoading(true);
       setdata([]);//we have reset the data.
       let url;
-      if(searchstatus && debouncedInput)
-        url="https://api.jikan.moe/v4/anime?q="+debouncedInput;
+      if(browseSearch && debouncedInput)
+        url="https://api.jikan.moe/v4/anime?q="+debouncedInput+"&page="+browseSearchCount;
       else{
         url="https://api.jikan.moe/v4/anime?page="+pagecount;
       }
@@ -39,6 +41,9 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
         .then(Response=>Response.json())
         .then(json =>{
           setdata(json.data);
+          {browseSearch && 
+          setpage(prev=>({...prev,search1:json?.pagination?.last_visible_page}))
+        }
         })
         .catch((err)=>{
           setError(err);
@@ -49,7 +54,7 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
           },3000)
         });
         
-  },[pagecount,debouncedInput,searchstatus,NavbarClick]);
+  },[pagecount,debouncedInput,browseSearch,NavbarClick,browseSearchCount]);
 
   useEffect(()=>{
     fetch("https://api.jikan.moe/v4/genres/anime")
@@ -77,7 +82,7 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
           setLoading(false);
         },3000)
       });
-
+      
   },[NavbarClick])
   
    useEffect(()=>{
@@ -85,8 +90,8 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
       return;
     setLoading(true);
     let url;
-    if(searchstatus && debouncedInput2)
-      url="https://api.jikan.moe/v4/anime?start_date=2020-01-01&q="+debouncedInput2;
+    if(releaseSearch && debouncedInput2)
+      url="https://api.jikan.moe/v4/anime?start_date=2020-01-01&q="+debouncedInput2+"&page="+releaseSearchCount;
     else
       url="https://api.jikan.moe/v4/anime?start_date=2020-01-01&page="+newReleasepage;
 
@@ -94,6 +99,9 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
       .then(Res=>Res.json())
       .then(json=>{
         settopYear(json.data);
+        {releaseSearch && 
+          setpage(prev=>({...prev,search2:json?.pagination?.last_visible_page}))
+        }
       })
       .catch((err)=>{
         setError(err);
@@ -103,8 +111,7 @@ const useMainPage=(NavbarClick,input,pagecount,searchstatus,newReleasepage,input
           setLoading(false);
         },3000)
       });
-
-  },[newReleasepage,NavbarClick,searchstatus,debouncedInput2])
+  },[newReleasepage,NavbarClick,releaseSearch,debouncedInput2,releaseSearchCount])
 
 
   return {data,error,loading,GenreData,topData,topYear,page};
