@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useState } from "react";
-import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres} from "./styled";
+import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres, GenreSection, GenreTagButton} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
 import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter,GenreFilter,LineSection,Line,Paragrafh} from './styled';
 import Box from '@mui/material/Box';
@@ -11,6 +11,7 @@ import Select from '@mui/material/Select';
 import ImportExportIcon from '@mui/icons-material/ImportExport';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import HomeDataContext from "../context/HomeDataContext";
+import { GoTag } from "react-icons/go";
 
 const Search_Filterbar=()=>{
   
@@ -46,11 +47,32 @@ const Search_Filterbar=()=>{
           <Motto>The newest anime series and movies from 2020 onwards</Motto>
         </SectionTittle>
         }
+
+        {NavbarClick==="Genres" &&
+        <SectionTittle>
+          <Topic>Popular Genres</Topic>
+          <Motto>Click on a genre to explore anime in that category</Motto>
+        </SectionTittle>
+        }
         
+        {NavbarClick !=="Genres"&&
         <SectionUpdate>
           Updated daily
         </SectionUpdate>
+        }
+
       </Section>
+      {NavbarClick ==="Genres" &&
+        <GenreSection>
+          {GenreData&& GenreData
+            .filter(genre=>genre.count >400)
+            .map((Genre)=>{
+              return(
+                <GenreTagButton key={Genre.mal_id}><GoTag color="#5499DC"/>  {Genre.name}</GenreTagButton>
+              )
+            })}
+        </GenreSection>
+      }
       {(NavbarClick==="Browse" || NavbarClick==="New Releases")&&
       <Search_Filter>
 

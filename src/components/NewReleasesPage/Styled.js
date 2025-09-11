@@ -5,9 +5,9 @@ export const ChargeIcon=styled.div`
   display:flex;
   margin-bottom:5px;
   background-color:#00A786;
-  height:40px;
-  width:40px;
-  border-radius:20px;
+  height:50px;
+  width:50px;
+  border-radius:25px;
   font-size:30px;
   justify-content:center;
   align-items:center;

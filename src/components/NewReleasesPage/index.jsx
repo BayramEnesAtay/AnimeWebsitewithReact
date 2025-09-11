@@ -12,7 +12,7 @@ const NewReleasesPage=()=>{
       <Container1>
         <ChargeIcon>
           <svg xmlns="http://www.w3.org/2000/svg" 
-            width="20" height="20" 
+            width="30" height="30" 
             fill="none" stroke="white" strokeWidth="2" 
             viewBox="0 0 24 24">
             <path d="M13 2 L3 14 H12 L11 22 L21 10 H12 L13 2 Z"/>

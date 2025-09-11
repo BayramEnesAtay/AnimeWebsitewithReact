@@ -60,7 +60,7 @@ export const Widget=styled.div`
   margin-top:100px;
 `
 export const Star=styled.span`
-  color:#FE9900;
+  color:${(props)=>props.color};
   font-size:16px;
 `
 export const Award=styled.span`
@@ -72,9 +72,9 @@ export const AwardIcon=styled.div`
   display:flex;
   margin-bottom:5px;
   background-color:${(props)=>props.bg};
-  height:40px;
-  width:40px;
-  border-radius:20px;
+  height:50px;
+  width:50px;
+  border-radius:25px;
   font-size:30px;
   justify-content:center;
   align-items:center;

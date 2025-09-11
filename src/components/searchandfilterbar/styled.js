@@ -187,3 +187,36 @@ export const Paragrafh=styled.span`
   color:#71717A;
   font-size:14px;
 `
+export const GenreSection=styled.div`
+  display: grid;
+  grid-template-rows:auto;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap:10px;
+  margin-left:150px;
+  margin-right:150px;
+  margin-bottom:30px;
+  font-family:sans-serif;
+`
+export const GenreTagButton=styled.button`
+  display:flex;
+  flex-direction:row;
+  column-gap:5px;
+  font-family:sans-serif;
+  color:#fff;
+  background-color:#101018;
+  border:2px solid #1E1E2E;
+  border-radius:5px;
+  justify-content:center;
+  align-items:center;
+  padding:10px 20px 10px 20px;
+  transition:transform 0.3s background-color 0.3s; 
+  &:hover{
+    transform:scale(1.05);
+    background-color:#111018;
+    transition:transform 0.3s background-color 0.3s; 
+  }
+    &:active{
+      background-color:#6366F1;
+      
+    }
+`

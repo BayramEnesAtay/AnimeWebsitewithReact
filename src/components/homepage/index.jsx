@@ -9,6 +9,7 @@ import Footer from "../footer";
 import Search_Filterbar from "../searchandfilterbar";
 import TopRatedPage from "../TopRatedPage";
 import NewReleasesPage from "../NewReleasesPage";
+import GenrePage from "../genrespage/GenreFilterPage";
 
 const HomePage=()=>{
   const {NavbarClick}=useContext(HomeDataContext);
@@ -26,6 +27,9 @@ const HomePage=()=>{
     }
     {NavbarClick==="New Releases" &&
       <NewReleasesPage />
+    }
+    {NavbarClick==="Genres" &&
+      <GenrePage />
     }
     <Search_Filterbar/>
     <AnimeList />
