@@ -18,6 +18,10 @@ const Footer=()=>{
   {
     bgcolor="#00A685";
   }
+  else if(NavbarClick ==="Genres")
+  {
+    bgcolor="#C440CD";
+  }
   return(
     <FooterInfo>
       

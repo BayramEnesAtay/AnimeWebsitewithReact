@@ -2,7 +2,7 @@ import { useState,useEffect } from "react";
 import HomeDataContext from "../components/context/HomeDataContext";
 import useDebounce from "./useDebounce";
 
-const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount)=>{
+const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId)=>{
   const [data,setdata]=useState([]);
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
@@ -11,6 +11,7 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
   const [GenreData,setGenreData]=useState([]);
   const [topData,settopData]=useState([]);
   const [topYear,settopYear]=useState([]);
+  const [dataForGenres,setdataForGenres]=useState([]);
 
   const [page,setpage]=useState({
     browse:1157,
@@ -113,8 +114,35 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
       });
   },[newReleasepage,NavbarClick,releaseSearch,debouncedInput2,releaseSearchCount])
 
+  
+  useEffect(()=>{
+    console.log(selectedGenreId);
+    if(selectedGenreId)
+    {
+      setLoading(true);
+      const url="https://api.jikan.moe/v4/anime?genres="+selectedGenreId
+      fetch(url)
+        .then(Response=>Response.json())
+        .then(json =>{
+          setdataForGenres(json.data);
+        })
+        .catch((err)=>{
+          setError(err);
+        })
+        .finally(()=>{
+          setLoading(false);
+      });
+    }
+    else{
+      setLoading(false);
+      setdataForGenres([]);
+      return;
+    }
 
-  return {data,error,loading,GenreData,topData,topYear,page};
+  },[selectedGenreId,NavbarClick])
+
+
+  return {data,error,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear};
   
 }
 export default useMainPage;

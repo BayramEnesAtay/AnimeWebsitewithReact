@@ -22,7 +22,7 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setbrowseSearch,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch}=useContext(HomeDataContext);
+  const{setbrowseSearch,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -68,7 +68,7 @@ const Search_Filterbar=()=>{
             .filter(genre=>genre.count >400)
             .map((Genre)=>{
               return(
-                <GenreTagButton key={Genre.mal_id}><GoTag color="#5499DC"/>  {Genre.name}</GenreTagButton>
+                <GenreTagButton key={Genre.mal_id} onClick={()=>setselectedGenreId(Genre.mal_id)} ><GoTag color="#5499DC"/>  {Genre.name}</GenreTagButton>
               )
             })}
         </GenreSection>

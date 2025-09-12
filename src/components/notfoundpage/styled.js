@@ -34,7 +34,7 @@ export const Error=styled.p`
 `
 export const ErrorMessage=styled.h5`
   color:#FF7528;
-  font-size:20px;
+  font-size:15px;
   font-family:sans-serif;
   margin-bottom:10px;
   margin-top:0px;

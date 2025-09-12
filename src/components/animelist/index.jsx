@@ -7,7 +7,7 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 
 
 const AnimeList=()=>{
-  const {data,loading,sortType,topData,NavbarClick,topYear}=useContext(HomeDataContext);
+  const {data,loading,sortType,topData,NavbarClick,topYear,dataForGenres,selectedGenreId}=useContext(HomeDataContext);
   let sortedData;
   let reservedata;
 
@@ -70,13 +70,22 @@ return(
       <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} index={index} anime={anime}/>
     )})
     }
+
+    {!loading && NavbarClick==="Genres"&& selectedGenreId &&dataForGenres?.map((anime,index)=>{
+      return(
+      <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url}  index={index} anime={anime}/>
+      )
+    })}
     
     </Content>
     {(!loading && NavbarClick==="Browse" && data?.length===0) && (
-      <NotFound />
+      <NotFound message="Anime Not Found"/>
     )}
     {(!loading && NavbarClick==="New Releases" && topYear?.length===0) && (
-      <NotFound />
+      <NotFound message="Anime Not Found"/>
+    )}
+    {(!loading && NavbarClick==="Genres" && dataForGenres?.length===0) && (
+      <NotFound message="Please select a genre to see anime"/>
     )}
     </>
   

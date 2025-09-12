@@ -9,7 +9,7 @@ import useDebounce from "../../hooks/useDebounce";
 
 
 const PaginationComp=()=>{
-  const {setbrowseSearch,setreleaseSearch,setpagecount,pagecount,data,loading,setSortType,page,NavbarClick,newReleasepage,setnewReleasepage,browseSearch,browseSearchCount,setbrowseSearchCount,releaseSearch,releaseSearchCount,setreleaseSearchCount}=useContext(HomeDataContext);
+  const {setbrowseSearch,setreleaseSearch,setpagecount,pagecount,data,loading,setSortType,page,NavbarClick,newReleasepage,setnewReleasepage,browseSearch,browseSearchCount,setbrowseSearchCount,releaseSearch,releaseSearchCount,setreleaseSearchCount,setselectedGenreId,setLoading,setdata,setdataForGenres,settopData,settopYear}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
     if(browseSearch)
       setbrowseSearchCount(newPage);
@@ -51,12 +51,23 @@ const PaginationComp=()=>{
   const debouncedValue=useDebounce(pageForDebounce,600);
   //this is for when we search then go another page the actiual page and the count will change.
   useEffect(() => {
+    settopData([]);
+    settopYear([]);
+    setdataForGenres([]);
+    setdata([]);
+    setLoading(false);
   if (NavbarClick === "Browse") {
     setreleaseSearch(false);
+    setselectedGenreId(null);
     setreleaseSearchCount(1);
   } else if (NavbarClick === "New Releases") {
     setbrowseSearch(false);
     setbrowseSearchCount(1);
+    setselectedGenreId(null);
+  } 
+    else if(NavbarClick==="Top Rated")
+  {
+    setselectedGenreId(null);
   }
 }, [NavbarClick]);
 
