@@ -22,7 +22,7 @@ const Search_Filterbar=()=>{
     setStatus(event.target.value);
   };
 
-  const{setbrowseSearch,input,setInput,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId}=useContext(HomeDataContext);
+  const{setbrowseSearch,input1,setInput1,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -84,10 +84,10 @@ const Search_Filterbar=()=>{
             sx={{padding:0,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             placeholder="Search for anime..."
             inputProps={{ 'aria-label': 'search_filter' }}
-            value={NavbarClick==="Browse" ? input:input2}
+            value={NavbarClick==="Browse" ? input1:input2}
             onChange={(e)=>{
               {NavbarClick==="Browse" &&
-                setInput(e.target.value);
+                setInput1(e.target.value);
                 if(e.target.value.trim()==="")
                   setbrowseSearch(false);
                 else if(NavbarClick==="New Releases")
@@ -152,12 +152,11 @@ const Search_Filterbar=()=>{
             </InnerGenreFilter>
           </GenreFilter>
         }
-      {NavbarClick==="Top Rated" && 
+      
         <LineSection>
-          <Paragrafh><strong>25</strong> anime found</Paragrafh>
+          <Paragrafh>Start your journey</Paragrafh>
           <Line />
         </LineSection>
-      }
     </GeneralSection>
   );
 }

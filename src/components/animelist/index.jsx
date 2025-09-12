@@ -15,29 +15,32 @@ const AnimeList=()=>{
     reservedata=data;
   else if(NavbarClick==="New Releases")
     reservedata=topYear;
-  switch(sortType){
-    case "Title":{
-      sortedData=reservedata.toSorted((a,b)=>
-      a.title.localeCompare(b.title)
-    );
-    }break;
-    case "Rating":{
-      sortedData=reservedata.toSorted((a,b)=>{
-        return(b.score-a.score);
-      }
-      
-    );
-    }break;
-    case "Year":{
-      sortedData=reservedata.toSorted((a,b)=>{
-        return(b.year-a.year);
-      })
-    }break;
-    case "Episodes":{
-      sortedData=reservedata.toSorted((a,b)=>{
-        return(b.episodes-a.episodes);
-      })
-    }break;
+  if(NavbarClick==="Browse" || NavbarClick==="New Releases")
+  {
+    switch(sortType){
+      case "Title":{
+        sortedData=reservedata.toSorted((a,b)=>
+        a.title.localeCompare(b.title)
+      );
+      }break;
+      case "Rating":{
+        sortedData=reservedata.toSorted((a,b)=>{
+          return(b.score-a.score);
+        }
+        
+      );
+      }break;
+      case "Year":{
+        sortedData=reservedata.toSorted((a,b)=>{
+          return(b.year-a.year);
+        })
+      }break;
+      case "Episodes":{
+        sortedData=reservedata.toSorted((a,b)=>{
+          return(b.episodes-a.episodes);
+        })
+      }break;
+  }
   }
 
 return(

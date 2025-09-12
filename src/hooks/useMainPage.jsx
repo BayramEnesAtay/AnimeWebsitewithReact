@@ -1,10 +1,11 @@
 import { useState,useEffect } from "react";
 import HomeDataContext from "../components/context/HomeDataContext";
 import useDebounce from "./useDebounce";
+import { FaLess } from "react-icons/fa";
 
 const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId)=>{
   const [data,setdata]=useState([]);
-  const [loading,setLoading]=useState(false);
+  const [loading,setLoading]=useState(true);
   const [error,setError]=useState(null);
   const debouncedInput=useDebounce(input,800)
   const debouncedInput2=useDebounce(input2,800);
@@ -17,16 +18,18 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
     browse:1157,
     newRelease:280,
     search1:1,
-    search2:1//search1 and search2 are foru pagination total page.
+    search2:1,//search1 and search2 are foru pagination total page.
+    genres:1
   });
-
-  useEffect(() => {
-    setLoading(true);
-
-    setTimeout(() => {
+  useEffect(()=>{
+    if(NavbarClick==="Genres")
       setLoading(false);
-    }, 2000);
-  }, []);
+    else{
+      setLoading(true);
+    }
+    
+  },[NavbarClick])
+
   useEffect(()=>{
       if(NavbarClick!=="Browse")
         return;
@@ -66,9 +69,9 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
   },[]);
 
   useEffect(()=>{
-    setLoading(true);
     if(NavbarClick!=="Top Rated")
       return;
+    setLoading(true);
     fetch("https://api.jikan.moe/v4/top/anime")
       .then(Res=>Res.json())
       .then(json=>{
@@ -116,7 +119,6 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
 
   
   useEffect(()=>{
-    console.log(selectedGenreId);
     if(selectedGenreId)
     {
       setLoading(true);
@@ -125,16 +127,20 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
         .then(Response=>Response.json())
         .then(json =>{
           setdataForGenres(json.data);
+          {selectedGenreId && 
+            setpage(prev=>({...prev,genres:json?.pagination?.last_visible_page}))
+          }
         })
         .catch((err)=>{
           setError(err);
         })
         .finally(()=>{
-          setLoading(false);
-      });
+          setTimeout(()=>{
+            setLoading(false);
+          },3000)
+        });
     }
     else{
-      setLoading(false);
       setdataForGenres([]);
       return;
     }

@@ -15,7 +15,7 @@ const GenrePage=()=>{
           <HeroParagrafh>Discover anime by your favorite genres.From action-packed adventures to <br/>heartwarming slice-of-life stories</HeroParagrafh>
         </Container1>
         <Features>
-          <CountSpan><Grid color="#AD46FF"><MdOutlineGridOn /></Grid> 10+ Genres</CountSpan>
+          <CountSpan><Grid color="#AD46FF"><MdOutlineGridOn /></Grid> 35+ Genres</CountSpan>
           <FilterSpan><Filter color="#F6339A"><MdOutlineFilterAlt /></Filter> Smart Filtering
           </FilterSpan>
           <TagSpan>

@@ -11,15 +11,15 @@ export const HomeDataProvider=({children})=>{
   const [newReleasepage,setnewReleasepage]=useState(1);
   const [browseSearch,setbrowseSearch]=useState(false);//these are the states for search case.
   const [releaseSearch,setreleaseSearch]=useState(false);
-  const [input,setInput]=useState("");
+  const [input1,setInput1]=useState("");
   const [input2,setInput2]=useState("");
   const [sortType,setSortType]=useState("");
   const [NavbarClick,setNavbarClick]=useState("Browse");
   const [selectedGenreId,setselectedGenreId]=useState(null);
-  const {data,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear}=useMainPage(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId);
+  const {data,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear}=useMainPage(NavbarClick,input1,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId);
   
   return(
-    <HomeDataContext.Provider value={{settopYear,settopData,setdataForGenres,setdata,setLoading,dataForGenres,setselectedGenreId,selectedGenreId,setreleaseSearchCount,releaseSearchCount,setbrowseSearchCount,browseSearchCount,setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,browseSearch,setbrowseSearch,input,setInput,releaseSearch,setreleaseSearch}}>
+    <HomeDataContext.Provider value={{settopYear,settopData,setdataForGenres,setdata,setLoading,dataForGenres,setselectedGenreId,selectedGenreId,setreleaseSearchCount,releaseSearchCount,setbrowseSearchCount,browseSearchCount,setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,browseSearch,setbrowseSearch,input1,setInput1,releaseSearch,setreleaseSearch}}>
       {children}
     </HomeDataContext.Provider>
   ); 
