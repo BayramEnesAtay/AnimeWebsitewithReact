@@ -15,14 +15,13 @@ import { GoTag } from "react-icons/go";
 
 const Search_Filterbar=()=>{
   
-  const [openFilters,setOpenFilters]=useState(false);
   const [status, setStatus] = useState('Title A-Z');
 
   const handleChange = (event) => {
     setStatus(event.target.value);
   };
 
-  const{setbrowseSearch,input1,setInput1,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId}=useContext(HomeDataContext);
+  const{setbrowseSearch,openFilters,setOpenFilters,input1,setInput1,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId,setbrowseGenreId}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -145,7 +144,7 @@ const Search_Filterbar=()=>{
               <GenreButtons>
                 {GenreData&& GenreData.map((Genre,index)=>{
                   return(
-                    <Genres key={index}>{Genre.name}</Genres>
+                    <Genres onClick={()=>setbrowseGenreId(Genre.mal_id)} key={index}>{Genre.name}</Genres>
                   )
                 })}
               </GenreButtons>

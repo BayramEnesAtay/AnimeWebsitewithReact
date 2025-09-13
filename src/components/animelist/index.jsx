@@ -1,4 +1,5 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useState } from "react";
 import Card from '../card';
 import {Content} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
@@ -7,9 +8,34 @@ import NotFound from "../notfoundpage/NotFoundAnime";
 
 
 const AnimeList=()=>{
-  const {data,loading,sortType,topData,NavbarClick,topYear,dataForGenres,selectedGenreId}=useContext(HomeDataContext);
+  const {data,loading,setOpenFilters,sortType,topData,NavbarClick,topYear,dataForGenres,selectedGenreId,browseGenreId,setbrowseGenreId,setLoading,pagecount}=useContext(HomeDataContext);
+  const [browseGenreData,setbrowseGenreData]=useState([]);//this is the data for the genres in browse page.
   let sortedData;
   let reservedata;
+
+  useEffect(()=>{
+
+    if(NavbarClick==="Browse" && browseGenreId)
+      {
+        try{
+          setLoading(true);
+        setbrowseGenreData(data.filter(anime=>anime?.genres?.some(g=>g.mal_id===browseGenreId)));
+        }
+        finally{
+          setTimeout(()=>{
+            setLoading(false);
+          },3000)
+        }
+      }
+
+  },[NavbarClick,browseGenreId,data])
+
+  useEffect(()=>{
+    
+    setbrowseGenreId(null);
+    setOpenFilters(false);
+  },[pagecount,NavbarClick])
+  
 
   if(NavbarClick==="Browse")
     reservedata=data;
@@ -42,7 +68,7 @@ const AnimeList=()=>{
       }break;
   }
   }
-
+  const browsedata = (NavbarClick === "Browse" && browseGenreId) ? browseGenreData : data;
 return(
   <>
     <Content>
@@ -50,7 +76,7 @@ return(
       Array.from({length:10},(_,index)=><MainPageSkeleton key={index}/>)
     )}
 
-    {!loading && !sortType&& NavbarClick==="Browse" &&data?.map((anime,index)=>{
+    {!loading && !sortType&& NavbarClick==="Browse" &&browsedata?.map((anime,index)=>{
       return(
       <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url}  index={index} anime={anime}/>
       )
@@ -83,6 +109,9 @@ return(
     </Content>
     {(!loading && NavbarClick==="Browse" && data?.length===0) && (
       <NotFound message="Anime Not Found"/>
+    )}
+    {(!loading && NavbarClick==="Browse" && browseGenreId &&browseGenreData?.length===0) && (
+      <NotFound message="No anime found for this genre."/>
     )}
     {(!loading && NavbarClick==="New Releases" && topYear?.length===0) && (
       <NotFound message="Anime Not Found"/>

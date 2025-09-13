@@ -12,7 +12,7 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
   const [GenreData,setGenreData]=useState([]);
   const [topData,settopData]=useState([]);
   const [topYear,settopYear]=useState([]);
-  const [dataForGenres,setdataForGenres]=useState([]);
+  const [dataForGenres,setdataForGenres]=useState([]);//this is the data for the genres page.
 
   const [page,setpage]=useState({
     browse:1157,
