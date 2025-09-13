@@ -56,7 +56,7 @@ return(
       )
     })}
 
-    {!loading && !sortType && NavbarClick==="Top Rated" &&topData?.map((anime,index)=>{
+    {!loading && NavbarClick==="Top Rated" &&topData?.map((anime,index)=>{
       return(
       <Card key={anime.mal_id} animename={anime.title} url={anime.images.jpg.image_url} index={index} anime={anime}/>
       )

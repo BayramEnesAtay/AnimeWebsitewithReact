@@ -12,7 +12,7 @@ import NewReleasesPage from "../NewReleasesPage";
 import GenrePage from "../genrespage/GenreFilterPage";
 
 const HomePage=()=>{
-  const {NavbarClick}=useContext(HomeDataContext);
+  const {NavbarClick,selectedGenreId}=useContext(HomeDataContext);
 
   return(
     <> 
@@ -33,7 +33,7 @@ const HomePage=()=>{
     }
     <Search_Filterbar/>
     <AnimeList />
-    {(NavbarClick==="Browse" || NavbarClick==="New Releases") &&
+    {((NavbarClick==="Browse" || NavbarClick==="New Releases" )||(NavbarClick==="Genres" && selectedGenreId)) &&
       <PagenationComp />
     }
     <Footer/>

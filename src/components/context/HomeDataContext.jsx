@@ -16,10 +16,11 @@ export const HomeDataProvider=({children})=>{
   const [sortType,setSortType]=useState("");
   const [NavbarClick,setNavbarClick]=useState("Browse");
   const [selectedGenreId,setselectedGenreId]=useState(null);
-  const {data,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear}=useMainPage(NavbarClick,input1,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId);
+  const [genresCount,setgenresCount]=useState(1);
+  const {data,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear}=useMainPage(NavbarClick,input1,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId,genresCount,setgenresCount);
   
   return(
-    <HomeDataContext.Provider value={{settopYear,settopData,setdataForGenres,setdata,setLoading,dataForGenres,setselectedGenreId,selectedGenreId,setreleaseSearchCount,releaseSearchCount,setbrowseSearchCount,browseSearchCount,setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,browseSearch,setbrowseSearch,input1,setInput1,releaseSearch,setreleaseSearch}}>
+    <HomeDataContext.Provider value={{setgenresCount,genresCount,settopYear,settopData,setdataForGenres,setdata,setLoading,dataForGenres,setselectedGenreId,selectedGenreId,setreleaseSearchCount,releaseSearchCount,setbrowseSearchCount,browseSearchCount,setInput2,input2,setnewReleasepage,newReleasepage,page,topYear,topData,setNavbarClick,NavbarClick,GenreData,setSortType,sortType,data,loading,setpagecount,pagecount,browseSearch,setbrowseSearch,input1,setInput1,releaseSearch,setreleaseSearch}}>
       {children}
     </HomeDataContext.Provider>
   ); 

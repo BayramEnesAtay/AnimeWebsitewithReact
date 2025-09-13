@@ -3,7 +3,7 @@ import HomeDataContext from "../components/context/HomeDataContext";
 import useDebounce from "./useDebounce";
 import { FaLess } from "react-icons/fa";
 
-const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId)=>{
+const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId,genresCount,setgenresCount)=>{
   const [data,setdata]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState(null);
@@ -122,7 +122,7 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
     if(selectedGenreId)
     {
       setLoading(true);
-      const url="https://api.jikan.moe/v4/anime?genres="+selectedGenreId
+      const url="https://api.jikan.moe/v4/anime?genres="+selectedGenreId+"&page="+genresCount;
       fetch(url)
         .then(Response=>Response.json())
         .then(json =>{
@@ -145,7 +145,11 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
       return;
     }
 
-  },[selectedGenreId,NavbarClick])
+  },[selectedGenreId,NavbarClick,genresCount])
+
+  useEffect(()=>{
+    setgenresCount(1);
+  },[selectedGenreId])
 
 
   return {data,error,loading,setLoading,GenreData,topData,topYear,page,dataForGenres,setdata,setdataForGenres,settopData,settopYear};

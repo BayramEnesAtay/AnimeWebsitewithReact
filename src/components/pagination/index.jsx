@@ -9,12 +9,14 @@ import useDebounce from "../../hooks/useDebounce";
 
 
 const PaginationComp=()=>{
-  const {setbrowseSearch,setreleaseSearch,setpagecount,pagecount,data,loading,setSortType,page,NavbarClick,newReleasepage,setnewReleasepage,browseSearch,browseSearchCount,setbrowseSearchCount,releaseSearch,releaseSearchCount,setreleaseSearchCount,setselectedGenreId,selectedGenreId,setLoading,setInput1,setInput2}=useContext(HomeDataContext);
+  const {setbrowseSearch,setreleaseSearch,setpagecount,pagecount,data,loading,setSortType,page,NavbarClick,newReleasepage,setnewReleasepage,browseSearch,browseSearchCount,setbrowseSearchCount,setdataForGenres,releaseSearch,releaseSearchCount,setreleaseSearchCount,setselectedGenreId,selectedGenreId,setLoading,setInput1,setInput2,setgenresCount,genresCount}=useContext(HomeDataContext);
   const handleChange = (event,newPage) => {
     if(browseSearch)
       setbrowseSearchCount(newPage);
     else if(releaseSearch)
       setreleaseSearchCount(newPage);
+    else if(selectedGenreId)
+      setgenresCount(newPage);
     else{
       if(NavbarClick==="Browse")
         setpagecount(newPage);
@@ -46,6 +48,7 @@ const PaginationComp=()=>{
   }
   else if(selectedGenreId)
   {
+    pageForDebounce=genresCount;//the genresCount is our actual page number for the genres page.
     count=page.genres;
   }
   else{
@@ -63,16 +66,39 @@ const PaginationComp=()=>{
     setreleaseSearchCount(1);
     setpagecount(1);
     setInput2("");
+    setgenresCount(1);
   } else if (NavbarClick === "New Releases") {
     setbrowseSearch(false);
     setbrowseSearchCount(1);
     setselectedGenreId(null);
     setnewReleasepage(1);
     setInput1("");
-  } 
+    setgenresCount(1);
+  }
+    else if(NavbarClick==="Genres")
+  {
+    setbrowseSearch(false);
+    setreleaseSearch(false);
+    setreleaseSearchCount(1);
+    setbrowseSearchCount(1);
+    setInput1("");
+    setInput2("");
+    setpagecount(1);
+    setnewReleasepage(1);
+    setgenresCount(1);
+  }
     else if(NavbarClick==="Top Rated")
   {
+    setbrowseSearch(false);
+    setreleaseSearch(false);
+    setreleaseSearchCount(1);
+    setbrowseSearchCount(1);
+    setInput1("");
+    setInput2("");
     setselectedGenreId(null);
+    setnewReleasepage(1);
+    setgenresCount(1);
+    setdataForGenres([]);
   }
 }, [NavbarClick]);
 
