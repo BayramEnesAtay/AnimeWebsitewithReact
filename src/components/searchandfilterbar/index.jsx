@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
-import { useState } from "react";
-import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres, GenreSection, GenreTagButton} from "./styled";
+import { SectionUpdate ,Topic,Motto, SectionTittle,Section, InnerGenreFilter, Filter,GenreButtons,Genres, GenreSection, GenreTagButton, DeleteButton} from "./styled";
 import SearchIcon from '@mui/icons-material/Search';
 import { Search,SearchIconWrapper ,StyledInputBase,Search_Filter,FilterBtn,FilterButtonDiv,GeneralSection,Menu_Filter,GenreFilter,LineSection,Line,Paragrafh} from './styled';
 import Box from '@mui/material/Box';
@@ -14,14 +13,11 @@ import HomeDataContext from "../context/HomeDataContext";
 import { GoTag } from "react-icons/go";
 
 const Search_Filterbar=()=>{
-  
-  const [status, setStatus] = useState('Title A-Z');
-
+  const{setStatus,status,selectedGenreId,setbrowseSearch,openFilters,setOpenFilters,input1,setInput1,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId,setbrowseGenreId,browseGenreId}=useContext(HomeDataContext);
   const handleChange = (event) => {
     setStatus(event.target.value);
   };
 
-  const{setbrowseSearch,openFilters,setOpenFilters,input1,setInput1,setSortType,GenreData,NavbarClick,input2,setInput2,setreleaseSearch,setselectedGenreId,setbrowseGenreId}=useContext(HomeDataContext);
 
   return(
     <GeneralSection>
@@ -66,8 +62,9 @@ const Search_Filterbar=()=>{
           {GenreData&& GenreData
             .filter(genre=>genre.count >400)
             .map((Genre)=>{
+              const isSelected2=selectedGenreId===Genre.mal_id;
               return(
-                <GenreTagButton key={Genre.mal_id} onClick={()=>setselectedGenreId(Genre.mal_id)} ><GoTag color="#5499DC"/>  {Genre.name}</GenreTagButton>
+                <GenreTagButton selected={isSelected2} key={Genre.mal_id} onClick={()=>setselectedGenreId(isSelected2? null:Genre.mal_id)} ><GoTag color="#5499DC"/>  {Genre.name}</GenreTagButton>
               )
             })}
         </GenreSection>
@@ -118,7 +115,7 @@ const Search_Filterbar=()=>{
               sx={{ flexGrow:1,backgroundColor:"oklab(0.242856 0.00730701 -0.0294515 / 0.6)",color:"#FFFF",fontFamily:"sans-serif",fontSize:13,borderRadius:"7px",borderColor:"#27272a80",border:"2px solid #27272a80"}}
             >
               
-              <MenuItem onClick={()=>setSortType("Title")} value={"Title A-Z"}>Title A-Z</MenuItem>
+              <MenuItem onClick={()=>setSortType("Title") } value={"Title A-Z"}>Title A-Z</MenuItem>
               <MenuItem onClick={()=>setSortType("Rating")} value={"Rating(High to Low)"}>Rating(High to low)</MenuItem>
               <MenuItem onClick={()=>setSortType("Year")} value={"Year(New to old)"}>Year(New to old)</MenuItem>
               <MenuItem onClick={()=>setSortType("Episodes")} value={"Episodes(Most to least)"}>Episodes(Most to least)</MenuItem>
@@ -143,8 +140,9 @@ const Search_Filterbar=()=>{
               </Filter>
               <GenreButtons>
                 {GenreData&& GenreData.map((Genre,index)=>{
+                  const isSelected=browseGenreId===Genre.mal_id;
                   return(
-                    <Genres onClick={()=>setbrowseGenreId(Genre.mal_id)} key={index}>{Genre.name}</Genres>
+                    <Genres selected={isSelected} onClick={()=>setbrowseGenreId(Genre.mal_id)} key={index}>{Genre.name}{isSelected &&<DeleteButton onClick={(e)=>{e.stopPropagation();setbrowseGenreId(null)}}>X</DeleteButton>}</Genres>
                   )
                 })}
               </GenreButtons>

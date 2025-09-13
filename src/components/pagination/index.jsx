@@ -26,6 +26,7 @@ const PaginationComp=()=>{
     
     
     setSortType("");
+    
   };
   let pageForDebounce;
   let count;

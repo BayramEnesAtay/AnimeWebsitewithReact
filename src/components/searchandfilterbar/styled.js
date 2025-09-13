@@ -154,7 +154,6 @@ export const GenreButtons=styled.div`
 export const Genres=styled.span`
   font-size:12px;
   color:#fff;
-  background-color:rgb(39, 39, 42);
   padding:2.5px 7px;
   border-radius:7.5px;
   overflow:hidden;
@@ -166,8 +165,17 @@ export const Genres=styled.span`
     transition:border-color 0.2s
   }
   margin-top:5px;
+  cursor:default;
   flex-shrink:0;
   margin-right:3px;
+  background-color:${props=>props.selected ? "#6366F1":"rgb(39, 39, 42)"};
+`
+export const DeleteButton=styled.button`
+  font-size:10px;
+  color:#fff;
+  background-color:#6366F1;
+  border:none;
+  margin-left:2px;
   cursor:pointer;
 `
 export const LineSection=styled.div`
@@ -203,7 +211,6 @@ export const GenreTagButton=styled.button`
   column-gap:5px;
   font-family:sans-serif;
   color:#fff;
-  background-color:#101018;
   border:2px solid #1E1E2E;
   border-radius:5px;
   justify-content:center;
@@ -212,11 +219,9 @@ export const GenreTagButton=styled.button`
   transition:transform 0.3s background-color 0.3s; 
   &:hover{
     transform:scale(1.05);
-    background-color:#111018;
-    transition:transform 0.3s background-color 0.3s; 
+    transition:transform 0.3s; 
   }
-    &:active{
-      background-color:#6366F1;
-      
-    }
+  background-color:${props=>props.selected ?"#6366F1":"#101018" };
+  
+  
 `

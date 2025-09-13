@@ -5,10 +5,11 @@ import {Content} from "./Styled";
 import HomeDataContext from "../context/HomeDataContext";
 import MainPageSkeleton from "../skeleton/MainPageSkeleton";
 import NotFound from "../notfoundpage/NotFoundAnime";
+import NewReleasesPage from "../NewReleasesPage";
 
 
 const AnimeList=()=>{
-  const {data,loading,setOpenFilters,sortType,topData,NavbarClick,topYear,dataForGenres,selectedGenreId,browseGenreId,setbrowseGenreId,setLoading,pagecount}=useContext(HomeDataContext);
+  const {data,loading,setSortType,setOpenFilters,setStatus,sortType,topData,NavbarClick,topYear,dataForGenres,selectedGenreId,browseGenreId,setbrowseGenreId,setLoading,pagecount,newReleasepage}=useContext(HomeDataContext);
   const [browseGenreData,setbrowseGenreData]=useState([]);//this is the data for the genres in browse page.
   let sortedData;
   let reservedata;
@@ -34,11 +35,21 @@ const AnimeList=()=>{
     
     setbrowseGenreId(null);
     setOpenFilters(false);
-  },[pagecount,NavbarClick])
+    setStatus("Title A-Z");
+    setSortType("");
+  },[pagecount,NavbarClick,newReleasepage])
   
 
   if(NavbarClick==="Browse")
-    reservedata=data;
+  {
+    if(browseGenreId)
+    {
+      reservedata=browseGenreData;
+    }
+    else{
+      reservedata=data;
+    }
+  }
   else if(NavbarClick==="New Releases")
     reservedata=topYear;
   if(NavbarClick==="Browse" || NavbarClick==="New Releases")
