@@ -9,11 +9,14 @@ export const Background=styled.div`
   background-size: 100% 300%;
   opacity:1;
   position:relative;
+  z-index:1;
+  margin-top:50px;
 `
 export const Info=styled.div`
   position:absolute;
   left:17%;
   bottom:30px;
+  z-index:2;
 `
 export const FlexSection=styled.div`
   display:flex;
@@ -40,7 +43,7 @@ export const AnimeName=styled.h1`
   margin-top:25px;
 `
 export const Studio=styled.p`
-  color:oklch(.872 .01 258.338);
+  color:#fff;
   font-size:15px;
   font-family:sans-serif;
   margin-bottom:14px;
@@ -113,4 +116,50 @@ export const GradientDiv=styled.div`
   height:100%;
   width:108%;
   background-image: linear-gradient(to top,rgba(0,0,0,0.9),transparent);
+  z-index:0;
+`
+export const NavBox=styled.div`
+  display:flex;
+  flex-direction:row;
+  border-radius:20px;
+  width:400px;
+  height:30px;
+  justify-content:center;
+  align-items:center;
+  background-color:#19191C;
+  font-family:sans-serif;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%,100%) ;
+  
+`
+export const  StoryBtn=styled.button`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex-grow:0.3;
+  border:none;
+  background-color:#19191C;
+  color:#fff;
+  justify-content:center;
+`
+export const OverviewBtn=styled.button`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex-grow:0.3;
+  border:none;
+  background-color:#19191C;
+  color:#fff;
+  justify-content:center;
+`
+export const CommentBtn=styled.button`
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  flex-grow:0.3;
+  border:none;
+  background-color:#19191C;
+  color:#fff;
+  justify-content:center;
 `

@@ -9,17 +9,25 @@ import React from "react";
 import GlobalStyle from "../globalStyles.js";
 import { DetailDataProvider } from "./components/context/DetailDataContext.jsx";
 import { HomeDataProvider } from "./components/context/HomeDataContext.jsx";
-
+import Layout from "./components/Layout.jsx";
+import TopRatedPage from "./components/TopRatedPage/index.jsx";
+import NewReleasesPage from "./components/NewReleasesPage/index.jsx";
+import GenrePage from "./components/genrespage/GenreFilterPage.jsx";
 
 const App=()=>{
   return(
     <BrowserRouter> 
     <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<HomeDataProvider><HomePage /></HomeDataProvider>} />
-        <Route path="/anime/:id"  element={<DetailDataProvider><DetailPage /></DetailDataProvider>} >
-          <Route index element={<Overview />} />
-          <Route path="story" element={<Story />} />
+      <Routes >
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/top-rated" element={<HomePage />} />
+          <Route path="/new-releases" element={<HomePage />} />
+          <Route path="/genres" element={<HomePage />} />
+          <Route path="/anime/:id"  element={<DetailDataProvider><DetailPage /></DetailDataProvider>} >
+            <Route index element={<Overview />} />
+            <Route path="story" element={<Story />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

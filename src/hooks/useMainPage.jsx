@@ -29,7 +29,7 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
     }
     
   },[NavbarClick])
-
+  
   useEffect(()=>{
       if(NavbarClick!=="Browse")
         return;
@@ -45,9 +45,9 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
         .then(Response=>Response.json())
         .then(json =>{
           setdata(json.data);
-          {browseSearch && 
-          setpage(prev=>({...prev,search1:json?.pagination?.last_visible_page}))
-        }
+          if (browseSearch && page.search1 !== json?.pagination?.last_visible_page) {
+            setpage(prev => ({ ...prev, search1: json?.pagination?.last_visible_page }));
+          }
         })
         .catch((err)=>{
           setError(err);

@@ -2,13 +2,18 @@ import { useNavigate} from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import DetailDataContext from "../context/DetailDataContext";
 import React, { useContext } from "react";
-import {Background,AnimeImg,AnimeName,AddToList,Watch,Studio,FlexItems,FlexSection,RatingSection,Rank,Rating,Info,Buttons,Heart,GradientDiv} from "./Styled";
+import {Background,AnimeImg,AnimeName,AddToList,Watch,Studio,FlexItems,FlexSection,RatingSection,Rank,Rating,Info,Buttons,Heart,GradientDiv,NavBox, StoryBtn, OverviewBtn, CommentBtn} from "./Styled";
+import Navbar from "../navbar";
 
 
 const DetailPage=()=>{ 
   //const navigation=useNavigate();
   const data=useContext(DetailDataContext);
+  const navigate=useNavigate();
+
   return(
+    <>
+    <Navbar/>
     <Background>
       <Info>
         <FlexSection>
@@ -17,7 +22,7 @@ const DetailPage=()=>{
             {data && data.title&&
               <AnimeName>{data.title}</AnimeName>
             }
-            {data && data.year || data.studio &&
+            {(data && data.year || data.studio) &&
               <Studio>{data.year} &#x2022; {data?.studios[0].name}</Studio>
             }
             
@@ -39,6 +44,12 @@ const DetailPage=()=>{
       </Info>
       <GradientDiv />
     </Background>
+    <NavBox>
+      <OverviewBtn onClick={()=>navigate(`/anime/${data.mal_id}`)}>Overview</OverviewBtn>
+      <StoryBtn onClick={()=>navigate("story")}>Story</StoryBtn>
+      <CommentBtn >Comments</CommentBtn> 
+    </NavBox>
+    </>
   )
 }
 export default DetailPage;
