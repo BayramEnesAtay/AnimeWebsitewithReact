@@ -34,7 +34,7 @@ const Footer=()=>{
           bgcolor:bgcolor,
         }}
       />
-      MyAnimeList
+      OtakuNes
       </FooterCompany>
       <FooterMotto><p>Your gateway to the world of anime. Discover, explore, and enjoy.</p></FooterMotto>
     </FooterInfo>

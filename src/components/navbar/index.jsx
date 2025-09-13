@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import PersonIcon from '@mui/icons-material/Person';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import { LeftSection,RightSection,Icon_Typography } from './Styled';
@@ -26,10 +25,10 @@ const  Navbar=()=> {
                 color="inherit"
                 sx={{ ml: 0 ,padding:"0px"}}
               >
-              <TrendingUpIcon  sx={{ ml: 0 ,padding:"0px",bgcolor:"oklch(0.558 0.288 302.321)",borderRadius:1.5}}/>
+              <img src="../../public/favicon.ico" height="30px"/>
               </IconButton>
               <Typography variant="h6" component="div" sx={{ fontWeight:"bold" }}>
-                MyAnimeList
+                OtakuNes
               </Typography>
             </Icon_Typography>
             <Button onClick={()=>setNavbarClick("Browse")} color="inherit" size="small" sx={{
