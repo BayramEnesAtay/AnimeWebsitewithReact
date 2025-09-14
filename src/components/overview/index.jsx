@@ -20,9 +20,9 @@ const Overview=()=>{
         </Genres>
         <TrailerSection>
             <Paragrafh1>Trailer</Paragrafh1>
-            {data && data.trailer?.embed_url && 
-              <Trailer src={data.trailer.embed_url} frameBorder="0"></Trailer>
-            }
+            
+              <Trailer src={data.trailer?.embed_url} frameBorder="0"></Trailer>
+            
         </TrailerSection>
       </LeftSection>
       <RightSection>

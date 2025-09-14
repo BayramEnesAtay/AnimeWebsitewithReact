@@ -68,6 +68,7 @@ export const AddToList=styled.button`
   font-family:sans-serif;
   border-radius:9px;
   background-color:#6366F1;
+  justify-content:center;
   align-items:center;
   display:flex;
   transition: background-color 0.2s;
