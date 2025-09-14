@@ -5,6 +5,7 @@ const useDetailPage=(id)=>{
   const [data,setdata]=useState({});  
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
+  const [genres,setGenres]=useState([]);
 
   useEffect(()=>{
     setLoading(true);
@@ -13,8 +14,10 @@ const useDetailPage=(id)=>{
         .then(Response=>Response.json())
         .then(json =>{
           setdata(json.data);
-            
-        })
+          {json?.data?.genres?.forEach((genre)=>{
+            setGenres(prev => [...prev,genre.name]);
+          })  
+        }})
         .catch((err)=>{
           setError(err);
         })
@@ -23,6 +26,6 @@ const useDetailPage=(id)=>{
         });
   },[id])
 
-  return {data,loading,error};
+  return {data,loading,error,genres};
 }
 export default useDetailPage;

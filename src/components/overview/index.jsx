@@ -1,47 +1,72 @@
 import React, { useContext } from "react";
 import DetailDataContext from'../context/DetailDataContext'
-import {OverviewContent,InfoItem,MainInfo,Title,AnimeImg,ActionButtons,AddlistButton,LikeButton,Trailer,MainInfoPanel,TrailerTopic} from './Styled';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import {GenreTag,Genres,Paragrafh1,GenreTagRow, TrailerSection,LeftSection,Trailer,RightSection,Information,Paragrafh2,Section,Row,Type,Value, ScoreSection, Paragrafh3,Score} from './Styled';
+
 
 const Overview=()=>{
-  let data={}
-  data=useContext(DetailDataContext);
-
+  const {data,genres}=useContext(DetailDataContext)
+  
   return(
     <>
-    <OverviewContent >
-      <InfoItem>&#128250; {data?.type} { (data?.episodes)} (Episodes) </InfoItem>
-      <InfoItem>Score: {data?.score}</InfoItem>
-      <InfoItem>Rank: {data?.rank}</InfoItem>
-      {data.season && data.year && (
-        <InfoItem>&#128197; {data.season} {data.year}</InfoItem>
-      )}
-      {data.studios &&(
-        <InfoItem> {data.studios[0]?.name} Studio</InfoItem>
-      )}
-    </OverviewContent>  
-    <MainInfoPanel>
-    <MainInfo> 
-      <Title>{data?.title}</Title>
-      {data.images && data.images.jpg && (
-        <AnimeImg src={data.images.jpg.image_url}/>
-      )}
-      
-    <ActionButtons>
-      <AddlistButton>Add to List</AddlistButton>
-      <LikeButton><FavoriteIcon fontSize="small"></FavoriteIcon></LikeButton> 
-    </ActionButtons>
-    </MainInfo>
-    <Trailer>
-      {data.trailer?.embed_url && (
-        <TrailerTopic>Trailer</TrailerTopic>
-      )}
-      
-      {data.trailer && data.trailer.embed_url &&(
-      <iframe src={data.trailer.embed_url}frameBorder="0" width="300px" height="150px"></iframe>
-      )}
-    </Trailer>
-    </MainInfoPanel>
+    <Section>
+      <LeftSection>
+        <Genres>
+          <Paragrafh1>Genres</Paragrafh1>
+          <GenreTagRow>
+            {genres?.map((Genre)=>
+              <GenreTag key={Genre.mal_id}>{Genre}</GenreTag>
+            )}
+          </GenreTagRow>
+        </Genres>
+        <TrailerSection>
+            <Paragrafh1>Trailer</Paragrafh1>
+            {data && data.trailer?.embed_url && 
+              <Trailer src={data.trailer.embed_url} frameBorder="0"></Trailer>
+            }
+        </TrailerSection>
+      </LeftSection>
+      <RightSection>
+        <Information>
+            <Paragrafh2>Information</Paragrafh2>
+            <Row border={true}>
+              <Type>Type</Type>
+              {data?.type &&
+                <Value>{data.type} ({data.episodes} Episodes)</Value>
+              }
+            </Row>
+            <Row border={true}>
+              <Type>Aired</Type>
+              {data?.season && data.year&&
+                <Value>{data.season} {data.year}</Value>
+              }
+            </Row>
+            <Row border={true}>
+              <Type>Studio</Type>
+              {data?.studios&&
+                <Value>{data.studios[0].name}</Value>
+              }
+            </Row>
+            <Row border={true}>
+              <Type>Duration</Type>
+              {data?.duration&&
+                <Value>{data.duration}</Value>
+              }
+            </Row>
+            <Row border={false}>
+              <Type>Popularity</Type>
+              {data?.popularity&&
+                <Value>#{data.popularity}</Value>
+              }
+            </Row>
+        </Information>
+        <ScoreSection>
+          {data?.score &&
+            <Score>{data.score}</Score>
+          }
+          <Paragrafh3>Based on user Ratings</Paragrafh3>
+        </ScoreSection>
+      </RightSection>
+    </Section>
     </>
   );
 }

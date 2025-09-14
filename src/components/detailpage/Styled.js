@@ -11,6 +11,7 @@ export const Background=styled.div`
   position:relative;
   z-index:1;
   margin-top:50px;
+  margin-bottom:40px;
 `
 export const Info=styled.div`
   position:absolute;
@@ -128,9 +129,7 @@ export const NavBox=styled.div`
   align-items:center;
   background-color:#19191C;
   font-family:sans-serif;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%,100%) ;
+  
   
 `
 export const  StoryBtn=styled.button`
@@ -139,9 +138,13 @@ export const  StoryBtn=styled.button`
   align-items:center;
   flex-grow:0.3;
   border:none;
-  background-color:#19191C;
+  border:${props=>props.selected ? "1px solid #1E1E2E":"none"};
   color:#fff;
   justify-content:center;
+  background-color:${props=>props.selected ? "#1A1A22":"#19191C"};
+  border-radius:30px;
+  padding-top:5px;
+  padding-bottom:5px;
 `
 export const OverviewBtn=styled.button`
   display:flex;
@@ -149,9 +152,13 @@ export const OverviewBtn=styled.button`
   align-items:center;
   flex-grow:0.3;
   border:none;
-  background-color:#19191C;
   color:#fff;
   justify-content:center;
+  border:${props=>props.selected ? "1px solid #1E1E2E":"none"};
+  background-color:${props=>props.selected ? "#1A1A22":"#19191C"};
+  border-radius:30px;
+  padding-top:5px;
+  padding-bottom:5px;
 `
 export const CommentBtn=styled.button`
   display:flex;
@@ -162,4 +169,11 @@ export const CommentBtn=styled.button`
   background-color:#19191C;
   color:#fff;
   justify-content:center;
+`
+export const GeneralSection=styled.div`
+  display:flex;
+  width:100%;
+  justify-content:center;
+  align-items:start;
+
 `

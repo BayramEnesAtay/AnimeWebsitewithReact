@@ -1,15 +1,16 @@
 import { useNavigate} from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import DetailDataContext from "../context/DetailDataContext";
-import React, { useContext } from "react";
-import {Background,AnimeImg,AnimeName,AddToList,Watch,Studio,FlexItems,FlexSection,RatingSection,Rank,Rating,Info,Buttons,Heart,GradientDiv,NavBox, StoryBtn, OverviewBtn, CommentBtn} from "./Styled";
+import React, { useContext, useState } from "react";
+import {Background,AnimeImg,AnimeName,AddToList,Watch,Studio,FlexItems,FlexSection,RatingSection,Rank,Rating,Info,Buttons,Heart,GradientDiv,NavBox, StoryBtn, OverviewBtn, CommentBtn,GeneralSection} from "./Styled";
 import Navbar from "../navbar";
 
 
 const DetailPage=()=>{ 
   //const navigation=useNavigate();
-  const data=useContext(DetailDataContext);
+  const {data}=useContext(DetailDataContext);
   const navigate=useNavigate();
+  const [isSelected,setisSelected]=useState("overview");
 
   return(
     <>
@@ -44,11 +45,14 @@ const DetailPage=()=>{
       </Info>
       <GradientDiv />
     </Background>
-    <NavBox>
-      <OverviewBtn onClick={()=>navigate(`/anime/${data.mal_id}`)}>Overview</OverviewBtn>
-      <StoryBtn onClick={()=>navigate("story")}>Story</StoryBtn>
-      <CommentBtn >Comments</CommentBtn> 
-    </NavBox>
+    <GeneralSection>
+      <NavBox>
+        <OverviewBtn selected={isSelected==="overview"} onClick={()=>{navigate(`/anime/${data.mal_id}`);setisSelected("overview")}}>Overview</OverviewBtn>
+        <StoryBtn selected={isSelected==="story"} onClick={()=>{navigate("story");setisSelected("story")}}>Story</StoryBtn>
+        <CommentBtn >Comments</CommentBtn> 
+      </NavBox>
+    </GeneralSection>
+    <Outlet />
     </>
   )
 }
