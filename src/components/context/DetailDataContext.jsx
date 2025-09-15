@@ -7,10 +7,10 @@ const  DetailDataContext=createContext();
 
 export  const DetailDataProvider=({children})=>{
   let {id}=useParams();
-  const {data,loading,error,genres}=useDetailPage(id);
+  const {data,loading,error,genres,themes,producers}=useDetailPage(id);
   
   return(
-    <DetailDataContext.Provider value={{data,loading,error,genres}}>
+    <DetailDataContext.Provider value={{data,loading,error,genres,themes,producers}}>
       {children}
     </DetailDataContext.Provider>
   );

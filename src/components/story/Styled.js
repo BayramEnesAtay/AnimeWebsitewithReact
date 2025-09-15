@@ -10,6 +10,7 @@ export const Section=styled.div`
   margin-left:auto;
   margin-right:auto;
   row-gap:20px;
+  padding-bottom:20px;
 `
 export const StoryDiv=styled.div`
   display:flex;
@@ -60,7 +61,7 @@ export const StoryDetail=styled.div`
   display:flex;
   flex-direction:column;
   padding:21px;
-  width:50%;
+  width:40%;
   background-color:#10131C;
   border:1px solid #0C3544;
   border-radius:20px;
@@ -109,6 +110,40 @@ export const Themes=styled.div`
   border-radius:20px;
   border:1px solid #0C362E;
   background-color:#10131A;
-  width:50%;
+  width:40%;
   padding:21px;
+`
+export const GenreDiv=styled.div`
+  display:flex;
+  flex-direction:column;
+  row-gap:10px;
+
+`
+export const Title1=styled.span`
+  color:#71717A;
+  font-famiily:sans-serif;
+  font-size:13px;
+  margiin-bottom:7px;
+`
+export const Row=styled.div`
+  display:flex;
+  flex-direction:row;
+  column-gap:10px;
+  margin-bottom:7px;
+`
+export const GenreSpan=styled.span`
+  font-size:10.5px;
+  font-family:sans-serif;
+  color:${props=>props.color};
+  background-color:${props=>props.bg};
+  border:1px solid ${props=>props.border};
+  padding:2px 7px 2px 7px;
+  border-radius:10px;
+  overflow:hidden;
+  text-wrap:nowrap;
+`
+export const Detail_Themes=styled.div`
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
 `

@@ -72,6 +72,7 @@ export const Section=styled.div`
   column-gap:20px;
   justify-content:space-between;
   margin-right:150px;
+  padding-bottom:20px;
 `
 export const Row=styled.div`
   display:flex;

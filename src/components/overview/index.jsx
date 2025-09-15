@@ -7,7 +7,6 @@ const Overview=()=>{
   const {data,genres}=useContext(DetailDataContext)
   
   return(
-    <>
     <Section>
       <LeftSection>
         <Genres>
@@ -67,7 +66,6 @@ const Overview=()=>{
         </ScoreSection>
       </RightSection>
     </Section>
-    </>
   );
 }
 export default Overview;

@@ -6,6 +6,8 @@ const useDetailPage=(id)=>{
   const [loading,setLoading]=useState(false);
   const [error,setError]=useState(null);
   const [genres,setGenres]=useState([]);
+  const [themes,setThemes]=useState([]);
+  const [producers,setProducers]=useState([]);
 
   useEffect(()=>{
     setLoading(true);
@@ -16,7 +18,15 @@ const useDetailPage=(id)=>{
           setdata(json.data);
           {json?.data?.genres?.forEach((genre)=>{
             setGenres(prev => [...prev,genre.name]);
-          })  
+          })}
+
+          {json?.data?.themes?.forEach((theme)=>{
+            setThemes(prev => [...prev,theme.name]);
+          })}
+
+          {json?.data?.producers?.forEach((producer)=>{
+            setProducers(prev => [...prev,producer.name]);
+          })
         }})
         .catch((err)=>{
           setError(err);
@@ -26,6 +36,6 @@ const useDetailPage=(id)=>{
         });
   },[id])
 
-  return {data,loading,error,genres};
+  return {data,loading,error,genres,themes,producers};
 }
 export default useDetailPage;
