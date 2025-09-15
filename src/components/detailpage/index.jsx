@@ -4,13 +4,27 @@ import DetailDataContext from "../context/DetailDataContext";
 import React, { useContext, useState } from "react";
 import {Background,AnimeImg,AnimeName,AddToList,Watch,Studio,FlexItems,FlexSection,RatingSection,Rank,Rating,Info,Buttons,Heart,GradientDiv,NavBox, StoryBtn, OverviewBtn, CommentBtn,GeneralSection} from "./Styled";
 import Navbar from "../navbar";
-
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const DetailPage=()=>{ 
   //const navigation=useNavigate();
-  const {data}=useContext(DetailDataContext);
+  const {data,trailerRef}=useContext(DetailDataContext);
   const navigate=useNavigate();
+  const location=useLocation();
   const [isSelected,setisSelected]=useState("overview");
+  
+  useEffect(()=>{
+    if(location.pathname.endsWith("story"))
+    {
+      setisSelected("story");
+    }
+    else
+    {
+      setisSelected("overview");
+    }
+    
+  },[location.pathname])
 
   return(
     <>
@@ -38,7 +52,7 @@ const DetailPage=()=>{
 
             <Buttons>
               <AddToList><Heart>&#9825;</Heart>Add to List</AddToList>
-              <Watch>&#9654; &nbsp; Watch Trailer</Watch>
+              <Watch onClick={()=>{navigate(`/anime/${data.mal_id}`);setTimeout(()=>{trailerRef.current?.scrollIntoView({behavior:"smooth",block:"end"});},50)}}>&#9654; &nbsp; Watch Trailer</Watch>
             </Buttons>
           </FlexItems>
         </FlexSection>

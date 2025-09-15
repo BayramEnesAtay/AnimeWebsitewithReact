@@ -127,9 +127,6 @@ return(
     {(!loading && NavbarClick==="New Releases" && topYear?.length===0) && (
       <NotFound message="Anime Not Found"/>
     )}
-    {(!loading && NavbarClick==="Genres" && dataForGenres?.length===0) && (
-      <NotFound message="Please select a genre to see anime"/>
-    )}
     </>
   
 );

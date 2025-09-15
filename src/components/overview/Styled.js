@@ -118,3 +118,13 @@ export const Paragrafh3=styled.p`
   font-size:13px;
   color:#71717A;
 `
+export const AnimeImg=styled.img`
+  width:700px;
+  height:400px;
+  border-radius:30px;
+`
+export const NotAvailable=styled.p`
+  font-family:Inter;
+  font-size:15px;
+  color:#71717A;
+`

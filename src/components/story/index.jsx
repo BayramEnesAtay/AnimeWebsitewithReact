@@ -29,35 +29,27 @@ const Story=()=>{
             <Topic color="#00CFF5">Story Details</Topic>
           </TopicDiv>
           <DetailRow bg="#101B27" border="#0E2B38">
+            <Type>Episodes:</Type>
             {data?.episodes &&
-            <>
-              <Type>Episodes:</Type>
               <Value color="#01CAE9">{data.episodes}</Value>
-            </>
             }
           </DetailRow>
           <DetailRow bg="#121928" border="#14233F">
+            <Type>Studio:</Type>
             {data?.studios &&
-            <>
-              <Type>Studio:</Type>
               <Value color="#478EDF">{data.studios[0].name}</Value>
-            </>
             }
           </DetailRow>
           <DetailRow bg="#101B27" border="#0E2B38">
+            <Type>Year:</Type>
             {data?.year &&
-            <>
-              <Type>Year:</Type>
               <Value color="#01CAE9">{data.year}</Value>
-            </>
             }
           </DetailRow>
           <DetailRow bg="#121928" border="#14233F">
+            <Type>Source:</Type>
             {data?.source &&
-            <>
-              <Type>Source:</Type>
               <Value color="#478EDF">{data.source}</Value>
-            </>
             }
           </DetailRow>
         </StoryDetail>

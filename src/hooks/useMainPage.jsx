@@ -3,7 +3,7 @@ import HomeDataContext from "../components/context/HomeDataContext";
 import useDebounce from "./useDebounce";
 import { FaLess } from "react-icons/fa";
 
-const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId,genresCount,setgenresCount)=>{
+const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newReleasepage,input2,browseSearchCount,releaseSearchCount,selectedGenreId,genresCount,setgenresCount,setselectedGenreId)=>{
   const [data,setdata]=useState([]);
   const [loading,setLoading]=useState(true);
   const [error,setError]=useState(null);
@@ -23,7 +23,10 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
   });
   useEffect(()=>{
     if(NavbarClick==="Genres")
-      setLoading(false);
+      {
+        setLoading(false);
+        setselectedGenreId(1);
+      }
     else{
       setLoading(true);
     }
@@ -58,7 +61,7 @@ const useMainPage=(NavbarClick,input,pagecount,browseSearch,releaseSearch,newRel
           },3000)
         });
         
-  },[pagecount,debouncedInput,browseSearch,NavbarClick,browseSearchCount]);
+  },[NavbarClick,pagecount,debouncedInput,browseSearch,browseSearchCount]);
 
   useEffect(()=>{
     fetch("https://api.jikan.moe/v4/genres/anime")
