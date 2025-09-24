@@ -73,7 +73,7 @@ const Story=()=>{
             </Row>
             <Title1>Producers:</Title1>
             <Row>
-              {producers?.map((Producer)=>
+              {producers?.slice(0,4).map((Producer)=>
                 <GenreSpan color="#4BD1E2" bg="#10141B" border="#0B4251" key={Producer.mal_id}>{Producer}</GenreSpan>
               )}
             </Row>

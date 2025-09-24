@@ -132,7 +132,7 @@ export const Row=styled.div`
   margin-bottom:7px;
 `
 export const GenreSpan=styled.span`
-  font-size:10.5px;
+  font-size:10px;
   font-family:sans-serif;
   color:${props=>props.color};
   background-color:${props=>props.bg};
