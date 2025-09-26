@@ -4,8 +4,10 @@ import { FaLock } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 import SignInImage  from "../../images/SignInImage.jpg"
+import { useNavigate } from "react-router-dom";
 
 const SignIn=()=>{
+  const navigate=useNavigate();
   return(
     <>
   <Img src={SignInImage}/>
@@ -44,7 +46,7 @@ const SignIn=()=>{
         </Buttons>
         <Footer>
           <P1>Don&apos;t have an account?</P1>
-          <P2>Sign up</P2>
+          <P2 onClick={()=>{navigate("/sign-up")}}>Sign up</P2>
         </Footer>
       </LogIn>
     </Section>
