@@ -14,7 +14,7 @@ import HomeDataContext from '../context/HomeDataContext';
 import { useNavigate } from 'react-router-dom';
 
 const  Navbar=()=> {
-  const {setNavbarClick,setsignIn,setsignUp}=useContext(HomeDataContext);
+  const {setNavbarClick}=useContext(HomeDataContext);
   const navigate=useNavigate();
 
   return (
@@ -55,12 +55,12 @@ const  Navbar=()=> {
           }} >Genres</Button>
           </LeftSection>
           <RightSection>
-          <Button  size="small" onClick={()=>{setsignIn(true);navigate("/sign-in")}} sx={{ color:"#71717A",fontFamily:"sans-serif",fontSize:"13px",padding:0,textTransform: "none",borderRadius:"10px",'&:hover':{
+          <Button  size="small" onClick={()=>{navigate("/sign-in")}} sx={{ color:"#71717A",fontFamily:"sans-serif",fontSize:"13px",padding:0,textTransform: "none",borderRadius:"10px",'&:hover':{
             backgroundColor:"rgb(38, 38, 45)",
             color:"#fff",
             fontWeight:"bold",
           },transition:"background-color 0.3s ,color 0.3s, font-weight 0.3s" }}>Sign In</Button>
-          <Button color="inherit" onClick={setsignUp(true)} sx={{ fontFamily:"sans-serif",fontSize:"13px",fontWeight:"bold",backgroundColor:"rgb(101, 105, 211)", padding:"7px 14px 7px 14px",textTransform: "none", borderRadius:"10px"}}>Sign Up</Button>
+          <Button color="inherit"  onClick={()=>{navigate("/sign-up")}} sx={{ fontFamily:"sans-serif",fontSize:"13px",fontWeight:"bold",backgroundColor:"rgb(101, 105, 211)", padding:"7px 14px 7px 14px",textTransform: "none", borderRadius:"10px"}}>Sign Up</Button>
           </RightSection>
         </Toolbar>
       </AppBar>

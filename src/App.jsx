@@ -14,12 +14,14 @@ import TopRatedPage from "./components/TopRatedPage/index.jsx";
 import NewReleasesPage from "./components/NewReleasesPage/index.jsx";
 import GenrePage from "./components/genrespage/GenreFilterPage.jsx";
 import SignIn from "./components/singIn/index.jsx";
+import SignUp from "./components/signup/index.jsx";
 
 const App=()=>{
   return(
     <BrowserRouter> 
     <GlobalStyle />
       <Routes >
+        <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />

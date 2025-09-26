@@ -13,7 +13,7 @@ const SignIn=()=>{
     
     <Section>
       <Title>
-        <Logo>A</Logo>
+        <Logo bg="rgb(75, 209, 226)">A</Logo>
         <Text>Welcome Back</Text>
         <Motto>Sign in to your OtakuNes account</Motto>
       </Title>
@@ -32,7 +32,7 @@ const SignIn=()=>{
             <Input type="password"  placeholder="Enter your password" />
           </Mail_Icon>
         </Email>
-        <Button>
+        <Button bg="rgb(75, 209, 226)" hover="rgba(43, 162, 177, 1)">
           Sign In
         </Button>
         <OrSection>

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { GenreButtons } from "../searchandfilterbar/styled";
-import { FaEnvelope,FaLock } from "react-icons/fa";
+import { FaEnvelope,FaLock,FaUser } from "react-icons/fa";
 
 
 export  const Section=styled.div`
@@ -44,7 +44,7 @@ export const Logo=styled.div`
   justify-content:center;
   align-items:center;
   border-radius:10px;
-  background-color:rgb(75, 209, 226);
+  background-color:${props=>props.bg};
   color:#fff;
   padding:11px 15px ;
   font-family:sans-serif;
@@ -112,17 +112,22 @@ export const LockIcon=styled(FaLock)`
   color:#fff;
   left:2%;
 `
+export const UserIcon=styled(FaUser)`
+  position:absolute;
+  color:#fff;
+  left:2%;  
+`
 export const Button=styled.button`
   padding:7px 14px 7px 14px;
   font-family:sans-serif;
   font-size:13px;
   color:#fff;
   font-weight:bold;
-  background-color:rgb(75, 209, 226);
+  background-color:${props=>props.bg};
   border-radius:10px;
   border:none;
   &:hover{
-    background-color:rgba(43, 162, 177, 1);
+    background-color:${props=>props.hover};
   }
   transition:background-color 0.3s;
 `
@@ -178,4 +183,5 @@ export const P2=styled.p`
   color:#CA4ADB;
   font-size:13px;
   cursor:pointer;
+  font-weight:bold;
 `
